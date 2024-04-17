@@ -1,9 +1,13 @@
-import './App.css';
-function App(){
-  return (
-    <div className='text-white h-'>
+// App.jsx
 
+import RegForm from "./components/Reg_form";
+
+function App() {
+  return (
+    <div>
+      <RegForm />
     </div>
-  )
+  );
 }
-export default App
+
+export default App;
