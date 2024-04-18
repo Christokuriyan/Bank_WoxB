@@ -1,10 +1,10 @@
 
-import React from "react";
+
 import Button from "./Button";
 
 const RegForm = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+    
       <div className="max-w-md w-full space-y-8">
         <div className="relative rounded-lg bg-white p-8 w-787 h-760 top-160 left-1013 gap-0 border-0 border-opacity-0">
           <h2 className="mt-6 text-left text-2xl font-bold text-[#33B786]">
@@ -82,7 +82,7 @@ const RegForm = () => {
           </p>
         </div>
       </div>
-    </div>
+    
   );
 };
 

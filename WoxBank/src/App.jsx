@@ -1,11 +1,14 @@
 // App.jsx
 
-import RegForm from "./components/Reg_form";
+
+import HomePage from "./HomePage";
+
 
 function App() {
   return (
     <div>
-      <RegForm />
+    
+      <HomePage/>
     </div>
   );
 }
