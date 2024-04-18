@@ -1,14 +1,14 @@
 // App.jsx
 
 
-import HomePage from "./HomePage";
+import Loginform from "../src/components/Loginform";
 
 
 function App() {
   return (
     <div>
     
-      <HomePage/>
+      <Loginform/>
     </div>
   );
 }
