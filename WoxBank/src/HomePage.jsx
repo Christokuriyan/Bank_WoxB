@@ -1,6 +1,6 @@
-import RegForm from "../src/components/Reg_form";
+// import RegForm from "../src/components/Reg_form";
 
-const HomePage = () => {
+const HomePage = ({ children, heading, desc }) => {
   return (
     <div className="bg-[#D4F3E7] flex flex-col md:flex-row">
       {/* First section */}
@@ -15,11 +15,13 @@ const HomePage = () => {
           </div>
           {/* Main heading */}
           <h1 className="text-4xl font-bold mb-4">
-            Experience
+            {heading}
           </h1>
-          <h1 className="text-4xl font-bold mb-4">hassle-free banking</h1>
+          {/* <h1 className="text-4xl font-bold mb-4">hassle-free banking</h1> */}
           <p className="text-lg font-sans text-left mb-4"> {/* Added font-serif and text-left classes */}
-            Experience simple, secure, and stress-free banking. Say goodbye to long queues and complex procedures and hello to hassle-free banking with Wox Bank.
+            {desc}
+            {/* 
+            Experience simple, secure, and stress-free banking. Say goodbye to long queues and complex procedures and hello to hassle-free banking with Wox Bank. */}
           </p>
           {/* Social media icons */}
           <div className="flex mt-4">
@@ -35,7 +37,8 @@ const HomePage = () => {
         <img src="../public/assets/registrations/new.png" alt="Background Image" className="absolute inset-0 w-full h-full object-cover opacity-10 hidden md:block" />
         {/* Registration form */}
         <div className="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-          <RegForm />
+          {/* <RegForm /> */}
+          {children}
         </div>
       </div>
     </div>

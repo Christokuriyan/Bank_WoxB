@@ -56,15 +56,15 @@ const RegForm = () => {
             />
           </div>
           <div className="flex items-center">
-            <input
+            {/* <input
               id="terms"
               name="terms"
               type="checkbox"
               className="h-4 w-4 text-[#33B786] focus:ring-[#33B786] border-gray-300 rounded"
-            />
-            <label htmlFor="terms" className="ml-2 block text-sm text-gray-900">
+            /> */}
+            {/* <label htmlFor="terms" className="ml-2 block text-sm text-gray-900">
               I agree to all the Terms, Privacy Policy, and Fees
-            </label>
+            </label> */}
           </div>
 
           <div>
@@ -72,9 +72,9 @@ const RegForm = () => {
           </div>
         </form>
         <p className="mt-2 text-center text-sm text-gray-600">
-          Already have an account?{" "}
+        Don’t Have an Account?{" "}
           <a href="#" className="font-medium text-[#33B786] hover:text-[#33B786]">
-            Log in
+            Register 
           </a>
         </p>
       </div>
