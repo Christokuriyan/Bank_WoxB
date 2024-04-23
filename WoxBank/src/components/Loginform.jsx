@@ -2,7 +2,7 @@
 
 import Button from "./Button";
 
-const RegForm = () => {
+const Loginform = () => {
   return (
     <div className="max-w-md w-full space-y-8" style={{ boxShadow: '0px 0px 150px 25px rgba(51, 183, 134, 0.25)' }}> {/* Added inline style for box shadow */}
       <div className="relative rounded-lg bg-white p-8 w-787 h-760 top-160 left-1013 gap-0 border-0 border-opacity-0">
@@ -56,19 +56,11 @@ const RegForm = () => {
             />
           </div>
           <div className="flex items-center">
-            {/* <input
-              id="terms"
-              name="terms"
-              type="checkbox"
-              className="h-4 w-4 text-[#33B786] focus:ring-[#33B786] border-gray-300 rounded"
-            /> */}
-            {/* <label htmlFor="terms" className="ml-2 block text-sm text-gray-900">
-              I agree to all the Terms, Privacy Policy, and Fees
-            </label> */}
+            
           </div>
 
           <div>
-            <Button>Register</Button>
+            <Button>Login</Button>
           </div>
         </form>
         <p className="mt-2 text-center text-sm text-gray-600">
@@ -82,4 +74,4 @@ const RegForm = () => {
   );
 };
 
-export default RegForm;
+export default Loginform;
