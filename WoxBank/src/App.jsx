@@ -124,37 +124,146 @@
 // }
 
 // export default App;
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-// import DashboardLayout from './components/DashboardLayout'; (Commented as not used currently)
-import OverView from './components/OverView';
-import Accounts from './components/Accounts';
-import Transaction from './components/Transaction';
-import Profile from './components/Profile';
-import HomePage from "./HomePage";
-import Loginform from "./components/Loginform";
-import RegForm from "./components/Reg_form";
-import Otp from "./components/Otp";
 
-function App() {
-  return (
-    <Router>
-      <Routes>
-        {/* Dedicated route for the Login page */}
-        <Route path="/login" element={<HomePage heading="Welcome Back" desc="Enter Your Details to login to your Banking Dashboard again!"><Loginform /></HomePage>} />
-        
-        {/* Root path now redirects to Login page */}
-        <Route path="/" element={<Navigate replace to="/login" />} />
-        
-        {/* Route for registration */}
-        <Route path="/register" element={<HomePage heading="Experience hassle-free banking" desc="Experience simple, secure, and stress-free banking. Say goodbye to long queues and complex procedures and hello to hassle-free banking with Wox Bank."><RegForm /></HomePage>} />
 
-        {/* Route for OTP verification */}
-        <Route path="/otp" element={<HomePage heading="Verify Your Account" desc="Please enter the OTP sent to your email to proceed."><Otp /></HomePage>} />
+// import React from 'react';
+// import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+// // import DashboardLayout from './components/DashboardLayout'; (Commented as not used currently)
+// // import OverView from './components/OverView';
+// // import Accounts from './components/Accounts';
+// // import Transaction from './components/Transaction';
+// // import Profile from './components/Profile';
+// import HomePage from "./HomePage";
+// import Loginform from "./components/Loginform";
+// import RegForm from "./components/Reg_form";
+// import Otp from "./components/Otp";
+
+// function App() {
+//   return (
+//     <Router>
+//       <Routes>
+//         {/* Dedicated route for the Login page */}
+//         <Route path="/login" element={<HomePage heading="Welcome Back" desc="Enter Your Details to login to your Banking Dashboard again!"><Loginform /></HomePage>} />
+        
+//         {/* Root path now redirects to Login page */}
+//         <Route path="/" element={<Navigate replace to="/login" />} />
+        
+//         {/* Route for registration */}
+//         <Route path="/register" element={<HomePage heading="Experience hassle-free banking" desc="Experience simple, secure, and stress-free banking. Say goodbye to long queues and complex procedures and hello to hassle-free banking with Wox Bank."><RegForm /></HomePage>} />
+
+//         {/* Route for OTP verification */}
+//         <Route path="/otp" element={<HomePage heading="Verify Your Account" desc="Please enter the OTP sent to your email to proceed."><Otp /></HomePage>} />
       
-      </Routes>
-    </Router>
-  );
+//       </Routes>
+//     </Router>
+//   );
+// }
+
+// export default App;
+
+
+// import React from 'react';
+// import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+// import HomePage from "./HomePage";
+// import Loginform from "./components/Loginform";
+// import RegForm from "./components/Reg_form";
+// import Otp from "./components/Otp";
+
+// function App() {
+//   return (
+//     <Router>
+//       <Routes>
+//         {/* Root path now redirects to Login page */}
+//         <Route path="/" element={<Navigate replace to="/login" />} />
+
+//         {/* Dedicated route for the Login page */}
+//         <Route path="/login" element={<HomePage heading="Welcome Back" desc="Enter Your Details to login to your Banking Dashboard again!"><Loginform /></HomePage>} />
+
+//         {/* Route for registration */}
+//         <Route path="/register" element={<HomePage heading="Experience hassle-free banking" desc="Experience simple, secure, and stress-free banking. Say goodbye to long queues and complex procedures and hello to hassle-free banking with Wox Bank."><RegForm /></HomePage>} />
+
+//         {/* Route for OTP verification */}
+//         <Route path="/otp" element={<HomePage heading="Verify Your Account" desc="Please enter the OTP sent to your email to proceed."><Otp /></HomePage>} />
+//       </Routes>
+//     </Router>
+//   );
+// }
+
+// export default App;
+
+// import React from 'react';
+// import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+// import HomePage from "./HomePage";
+// import Loginform from "./components/Loginform";
+// import RegForm from "./components/Reg_form";
+// import Otp from "./components/Otp";
+
+// const App = () => {
+//   return (
+//     <Router>
+//       <Routes>
+//         <Route path="/" element={<Navigate replace to="/login" />} />
+//         <Route path="/login" element={
+//           <HomePage heading="Welcome Back" desc="Enter Your Details to login to your Banking Dashboard again!">
+//             <Loginform />
+//           </HomePage>
+//         } />
+//         <Route path="/register" element={
+//           <HomePage heading="Experience hassle-free banking" desc="Experience simple, secure, and stress-free banking.">
+//             <RegForm />
+//           </HomePage>
+//         } />
+//         <Route path="/otp" element={
+//           <HomePage heading="Verify Your Account" desc="Please enter the OTP sent to your email to proceed.">
+//             <Otp />
+//           </HomePage>
+//         } />
+//       </Routes>
+//     </Router>
+//   );
+// };
+
+// export default App;
+
+
+
+
+
+
+
+// import React from 'react';
+// import { Routes, Route, Navigate } from 'react-router-dom';
+// import HomePage from "./HomePage";
+// import Loginform from "./components/Loginform";
+// import RegForm from "./components/Reg_form";
+// import Otp from "./components/Otp";
+
+// const App = () => {
+//   return (
+//     <Routes>
+//       <Route path="/" element={<Navigate replace to="/register" />} />
+//       <Route path="/login" element={<HomePage heading="Welcome Back" desc="Enter Your Details to login to your Banking Dashboard again!"><Loginform /></HomePage>} />
+//       <Route path="/register" element={<HomePage heading="Experience hassle-free banking" desc="Experience simple, secure, and stress-free banking."><RegForm /></HomePage>} />
+//       <Route path="/otp" element={<HomePage heading="Verify Your Account" desc="Please enter the OTP sent to your email to proceed."><Otp /></HomePage>} />
+//     </Routes>
+//   );
+// };
+
+// export default App;
+
+
+
+import LoginNew from "../src/screens/LoginNew"
+
+
+
+const App = () => {
+  return (
+    <div>
+      <LoginNew/>
+
+    </div>
+  )
 }
 
-export default App;
+export default App

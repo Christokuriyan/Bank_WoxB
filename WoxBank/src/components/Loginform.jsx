@@ -76,44 +76,77 @@
 
 // export default Loginform;
 
+// import React from 'react';
+// import { useNavigate } from 'react-router-dom';
+// import Button from "./Button";
+
+// const Loginform = () => {
+//   const navigate = useNavigate();
+
+//   const handleLogin = () => {
+//     // Simulate login process
+//     navigate('/otp'); // Navigate to OTP page after login
+//   };
+
+//   return (
+//     <div className="max-w-md w-full space-y-8" style={{ boxShadow: '0px 0px 150px 25px rgba(51, 183, 134, 0.25)' }}>
+//       <div className="relative rounded-lg bg-white p-8">
+//         <h2 className="mt-6 text-left text-2xl font-bold text-[#33B786]">Login</h2>
+//         <form className="mt-8 space-y-6" onSubmit={(e) => { e.preventDefault(); handleLogin(); }}>
+//           <div>
+//             <h3 className="text-sm font-medium text-gray-700">Email</h3> {/* Heading for Email */}
+//             <label htmlFor="email" className="sr-only">Email</label>
+//             <input id="email" name="email" type="email" autoComplete="email" required className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-[#33B786] focus:border-[#33B786] sm:text-sm mb-4" placeholder="Your email" />
+//           </div>
+//           <div>
+//             <h3 className="text-sm font-medium text-gray-700">Password</h3> {/* Heading for Password */}
+//             <label htmlFor="password" className="sr-only">Password</label>
+//             <input id="password" name="password" type="password" autoComplete="new-password" required className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-[#33B786] focus:border-[#33B786] sm:text-sm mb-4" placeholder="Your password" />
+//           </div>
+//           <Button>Login</Button>
+//         </form>
+//         <p className="mt-2 text-center text-sm text-gray-600">
+//           Don’t Have an Account?{" "}
+//           <a onClick={() => navigate('/register')} className="font-medium text-[#33B786] hover:text-[#33B786]">
+//             Register
+//           </a>
+//         </p>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default Loginform;
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import Button from "./Button";
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import HomePage from "./HomePage";
+import Loginform from "./components/Loginform";
+import RegForm from "./components/Reg_form";
+import Otp from "./components/Otp";
 
-const Loginform = () => {
-  const navigate = useNavigate();
-
-  const handleLogin = () => {
-    // Simulate login process
-    navigate('/otp'); // Navigate to OTP page after login
-  };
-
+const App = () => {
   return (
-    <div className="max-w-md w-full space-y-8" style={{ boxShadow: '0px 0px 150px 25px rgba(51, 183, 134, 0.25)' }}>
-      <div className="relative rounded-lg bg-white p-8">
-        <h2 className="mt-6 text-left text-2xl font-bold text-[#33B786]">Login</h2>
-        <form className="mt-8 space-y-6" onSubmit={(e) => { e.preventDefault(); handleLogin(); }}>
-          <div>
-            <h3 className="text-sm font-medium text-gray-700">Email</h3> {/* Heading for Email */}
-            <label htmlFor="email" className="sr-only">Email</label>
-            <input id="email" name="email" type="email" autoComplete="email" required className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-[#33B786] focus:border-[#33B786] sm:text-sm mb-4" placeholder="Your email" />
-          </div>
-          <div>
-            <h3 className="text-sm font-medium text-gray-700">Password</h3> {/* Heading for Password */}
-            <label htmlFor="password" className="sr-only">Password</label>
-            <input id="password" name="password" type="password" autoComplete="new-password" required className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-[#33B786] focus:border-[#33B786] sm:text-sm mb-4" placeholder="Your password" />
-          </div>
-          <Button>Login</Button>
-        </form>
-        <p className="mt-2 text-center text-sm text-gray-600">
-          Don’t Have an Account?{" "}
-          <a onClick={() => navigate('/register')} className="font-medium text-[#33B786] hover:text-[#33B786]">
-            Register
-          </a>
-        </p>
-      </div>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Navigate replace to="/register" />} />
+        <Route path="/login" element={
+          <HomePage heading="Welcome Back" desc="Enter Your Details to login to your Banking Dashboard again!">
+            <Loginform />
+          </HomePage>
+        } />
+        <Route path="/register" element={
+          <HomePage heading="Create Your Account" desc="Register to access your dashboard.">
+            <RegForm />
+          </HomePage>
+        } />
+        <Route path="/otp" element={
+          <HomePage heading="Verify Your Account" desc="Please enter the OTP sent to your email to proceed.">
+            <Otp />
+          </HomePage>
+        } />
+      </Routes>
+    </Router>
   );
 };
 
-export default Loginform;
+export default App;
