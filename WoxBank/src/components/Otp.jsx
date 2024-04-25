@@ -1,198 +1,84 @@
+import React, { useState, useEffect, useRef } from 'react';
 
 
+const Button = ({ children, onClick }) => (
+  <button className="bg-[#33B786] text-white px-4 py-2 rounded-md hover:bg-[#2a9d70]" onClick={onClick}>
+    {children}
+  </button>
+);
 
-// import React, { useState, useEffect } from 'react';
-// import OtpInput from './OtpInput';  // Assuming the file path is correct
+const OtpInput = ({ otp, setOtp }) => {
+  const inputsRef = useRef([]);
 
-// const Otp = () => {
-//   const [otp, setOtp] = useState('');
-//   const [timeLeft, setTimeLeft] = useState(300); // Time in seconds for countdown
-
-//   useEffect(() => {
-//     // Update the timer every second
-//     if (timeLeft > 0) {
-//       const timer = setTimeout(() => setTimeLeft(timeLeft - 1), 1000);
-//       return () => clearTimeout(timer);
-//     }
-//   }, [timeLeft]);
-
-//   const handleSubmit = (event) => {
-//     event.preventDefault();
-//     alert(`OTP Entered: ${otp}`);
-//     // Here you can also handle the verification logic or call an API to verify the OTP
-//   };
-
-//   return (
-   
-//       <div className="bg-[#FFFFFF] p-12 rounded-lg shadow-2xl max-w-lg"> 
-//         <h2 className="text-2xl font-bold text-left text-[#33B786] mb-6">Email Verification</h2>  
-//         <p className="text-sm text-gray-600 mb-8">A 6-digit code has been sent to your email us****me@gmail.com.</p>
   
-//         <form onSubmit={handleSubmit}>
-         
-//           <OtpInput otp={otp} setOtp={setOtp} />
-//           <div className="mb-6 text-sm font-medium">  
-//              {Math.floor(timeLeft / 60)}:{('0' + timeLeft % 60).slice(-2) } remaining
-//           </div>
-//           <button 
-//             type="submit" 
-//             className="w-full text-white bg-[#33B786] hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-bold rounded-lg text-lg px-6 py-3 text-center">  
-//             Verify Email
-//           </button>
-//         </form>
-//         <p className="mt-2 text-center text-sm text-gray-600">
-//         already have an account?{" "}
-//           <a href="#" className="font-medium text-[#33B786] hover:text-[#33B786]">
-//             Resend
-//           </a>
-//         </p>
-//       </div>
-    
-//   );
-// };
+  const handleChange = (element, index) => {
+    if (isNaN(element.value)) return;  
+    const newOtp = [...otp];
+    newOtp[index] = element.value;
+    setOtp(newOtp.join(""));  
 
-// export default Otp;
+   t
+    if (element.nextSibling && element.value) {
+      element.nextSibling.focus();
+    }
+  };
 
-// import React, { useState, useEffect } from 'react';
-// import { useNavigate } from 'react-router-dom';
-// import OtpInput from './OtpInput';  // Assuming the file path is correct
-// import '../../src/';  // Adjust the path as necessary
+  return (
+    <div className="flex justify-center space-x-2">
+      {Array.from({ length: 6 }).map((_, index) => (
+        <input
+          className="form-control text-center w-12 h-12 text-xl border border-gray-300 rounded focus:ring-[#33B786] focus:border-[#33B786]"
+          type="text"
+          name="otp"
+          maxLength="1"
+          key={index}
+          value={otp[index] || ''}
+          onChange={e => handleChange(e.target, index)}
+          onFocus={e => e.target.select()}
+          autoComplete="off"
+        />
+      ))}
+    </div>
+  );
+};
 
-
-// const Otp = () => {
-//   const [otp, setOtp] = useState('');
-//   const [timeLeft, setTimeLeft] = useState(300); // Time in seconds for countdown
-//   const [showPopup, setShowPopup] = useState(false); // State to manage popup visibility
-//   const navigate = useNavigate();
-
-//   useEffect(() => {
-//     // Update the timer every second
-//     if (timeLeft > 0) {
-//       const timer = setTimeout(() => setTimeLeft(timeLeft - 1), 1000);
-//       return () => clearTimeout(timer);
-//     }
-//   }, [timeLeft]);
-
-//   const handleSubmit = (event) => {
-//     event.preventDefault();
-//     setShowPopup(true); // Show popup on form submission
-//     // alert(`OTP Entered: ${otp}`); // Alert commented out, replace with popup logic
-//     // Here you can also handle the verification logic or call an API to verify the OTP
-//   };
-
-//   const handleGoToDashboard = () => {
-//     navigate('/dashboard'); // Navigate to the dashboard
-//   };
-
-//   return (
-//     <div className="bg-[#FFFFFF] p-12 rounded-lg shadow-2xl max-w-lg">
-//       <h2 className="text-2xl font-bold text-left text-[#33B786] mb-6">Email Verification</h2>
-//       <p className="text-sm text-gray-600 mb-8">A 6-digit code has been sent to your email us****me@gmail.com.</p>
-
-//       <form onSubmit={handleSubmit}>
-//         <OtpInput otp={otp} setOtp={setOtp} />
-//         <div className="mb-6 text-sm font-medium">
-//           {Math.floor(timeLeft / 60)}:{('0' + timeLeft % 60).slice(-2)} remaining
-//         </div>
-//         <button
-//           type="submit"
-//           className="w-full text-white bg-[#33B786] hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-bold rounded-lg text-lg px-6 py-3 text-center">
-//           Verify Email
-//         </button>
-//       </form>
-//       <p className="mt-2 text-center text-sm text-gray-600">
-//         Didn’t receive the code?{" "}
-//         <a href="#" className="font-medium text-[#33B786] hover:text-[#33B786]">
-//           Resend
-//         </a>
-//       </p>
-
-//       {/* Popup for successful verification */}
-//       {showPopup && (
-//         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
-//           <div className="bg-white p-6 rounded-lg text-center">
-//             <h2 className="text-lg font-bold mb-4">Verification Successful!</h2>
-//             <p>You have successfully verified your email.</p>
-//             <button onClick={handleGoToDashboard} className="mt-4 px-4 py-2 bg-green-500 text-white rounded-lg">
-//               Go to Dashboard
-//             </button>
-//           </div>
-//         </div>
-//       )}
-//     </div>
-//   );
-// };
-
-// export default Otp;
-import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import OtpInput from './OtpInput'; // Assuming the file path is correct
-
-const Otp = () => {
+const OtpNew = () => {
   const [otp, setOtp] = useState('');
-  const [timeLeft, setTimeLeft] = useState(300); // Time in seconds for countdown
-  const [showPopup, setShowPopup] = useState(false); // State to manage popup visibility
-  const navigate = useNavigate();
-  const correctOtp = "123456"; // Example correct OTP for demonstration
+  const [timeLeft, setTimeLeft] = useState(300); n
 
   useEffect(() => {
-    // Update the timer every second
+   
     if (timeLeft > 0) {
-      const timer = setTimeout(() => setTimeLeft(timeLeft - 1), 1000);
-      return () => clearTimeout(timer);
+      setTimeout(() => setTimeLeft(timeLeft - 1), 1000);
     }
   }, [timeLeft]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (otp === correctOtp) {
-      setShowPopup(true); // Show popup if OTP is correct
-    } else {
-      alert("Incorrect OTP. Please try again."); // Notify user of incorrect OTP
-    }
-  };
 
-  const handleGoToDashboard = () => {
-    navigate('/dashboard'); // Navigate to the dashboard
   };
 
   return (
-    <div className="bg-[#FFFFFF] p-12 rounded-lg shadow-2xl max-w-lg">
-      <h2 className="text-2xl font-bold text-left text-[#33B786] mb-6">Email Verification</h2>
-      <p className="text-sm text-gray-600 mb-8">A 6-digit code has been sent to your email us****me@gmail.com.</p>
-
-      <form onSubmit={handleSubmit}>
-        <OtpInput otp={otp} setOtp={setOtp} />
-        <div className="mb-6 text-sm font-medium">
-          {Math.floor(timeLeft / 60)}:{('0' + timeLeft % 60).slice(-2)} remaining
+    <div className="bg-[#D4F3E7] flex flex-col md:flex-row">
+      <div className="min-h-screen flex flex-col justify-center align-center p-8">
+        <div className="text-center">
+          <h1 className="text-4xl font-bold text-[#33B786] mb-6">OTP Verification</h1>
+          <p className="text-lg mb-4">A 6-digit code has been sent to your email us****me@gmail.com. <a href="#" style={{ color: '#33B786', cursor: 'pointer' }}>Change</a></p>
+          <form onSubmit={handleSubmit}>
+            <OtpInput otp={otp} setOtp={setOtp} />
+            <p className="text-sm">
+              {Math.floor(timeLeft / 60)}:{('0' + timeLeft % 60).slice(-2)} remaining
+            </p>
+            <Button>Verify OTP</Button>
+            <p className="mt-4">
+              Didn’t receive the code? <a href="#" style={{ color: '#33B786' }}>Resend</a>
+            </p>
+            <p className="text-gray-600 mt-2">Already have an account? <a href="#" style={{ color: '#33B786', textDecoration: 'underline' }}>Log in</a></p>
+          </form>
         </div>
-        <button
-          type="submit"
-          className="w-full text-white bg-[#33B786] hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-bold rounded-lg text-lg px-6 py-3 text-center">
-          Verify Email
-        </button>
-      </form>
-      <p className="mt-2 text-center text-sm text-gray-600">
-        Didn’t receive the code?{" "}
-        <a href="#" className="font-medium text-[#33B786] hover:text-[#33B786]">
-          Resend
-        </a>
-      </p>
-
-      {/* Popup for successful verification */}
-      {showPopup && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
-          <div className="bg-white p-6 rounded-lg text-center">
-            <h2 className="text-lg font-bold mb-4">Verification Successful!</h2>
-            <p>You have successfully verified your email.</p>
-            <button onClick={handleGoToDashboard} className="mt-4 px-4 py-2 bg-green-500 text-white rounded-lg">
-              Go to Dashboard
-            </button>
-          </div>
-        </div>
-      )}
+      </div>
     </div>
   );
-};
+}
 
-export default Otp;
+export default OtpNew;
