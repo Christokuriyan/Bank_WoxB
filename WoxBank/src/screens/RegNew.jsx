@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Button from "../components/Button"; 
+import { useNavigate } from 'react-router-dom';
 
 const RegNew = () => {
   const handleSubmit = (event) => {
@@ -9,6 +10,8 @@ const RegNew = () => {
     console.log("Handling registration...");
     
   };
+
+  const navigate = useNavigate()
 
   return (
     <div className="bg-[#D4F3E7] flex flex-col md:flex-row">
@@ -68,7 +71,7 @@ const RegNew = () => {
               </form>
               <p className="mt-2 text-center text-sm text-gray-600">
                 Already have an account?{" "}
-                <span className="font-medium text-[#33B786] cursor-pointer">Log in</span>
+                <span className="font-medium text-[#33B786] cursor-pointer" onClick={() => navigate("/login")}>Log in</span>
               </p>
             </div>
           </div>

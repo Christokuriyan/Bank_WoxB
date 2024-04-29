@@ -1,5 +1,4 @@
 
-import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
 
 const Dashboard = () => {
@@ -25,9 +24,9 @@ const Dashboard = () => {
                             </Link>
                         </li>
                         <li>
-                            <Link to="/dashboard/transactions" className="flex items-center space-x-2 text-gray-600 hover:text-blue-500">
-                                <img src="../../public/assets/icons/transaction.svg" alt="Transactions Icon" className="h-6 w-6"/>
-                                <span>Transactions</span>
+                            <Link to="/dashboard/Transaction" className="flex items-center space-x-2 text-gray-600 hover:text-blue-500">
+                                <img src="../../public/assets/icons/transaction.svg" alt="Transaction Icon" className="h-6 w-6"/>
+                                <span>Transaction</span>
                             </Link>
                         </li>
                         <li>
@@ -41,7 +40,7 @@ const Dashboard = () => {
 
                 
                 <div className="flex flex-col flex-grow bg-white shadow-md">
-                    }
+                    
                     <div className="bg-white p-4 shadow-md flex justify-between items-center">
                         
                         <div className="flex-grow flex justify-start items-center ml-4">
@@ -69,7 +68,7 @@ const Dashboard = () => {
                             <button className="p-2 rounded-full hover:bg-gray-200">
                                 <img src="../../public/assets/icons/notification bell.svg" alt="Notifications" className="h-6 w-6" />
                             </button>
-                            }
+                            
                           
                             <img src="../../public/assets/icons/profilepic.png" alt="User Profile" className="h-10 w-10 rounded-full border-2 border-blue-500" />
                         </div>
