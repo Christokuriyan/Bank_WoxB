@@ -39,9 +39,9 @@ const Dashboard = () => {
                 </div>
 
                 
-                <div className="flex flex-col flex-grow bg-white shadow-md">
+                <div className="flex flex-col flex-grow bg-white ">
                     
-                    <div className="bg-white p-4 shadow-md flex justify-between items-center">
+                    <div className="bg-white p-4  flex justify-between items-center">
                         
                         <div className="flex-grow flex justify-start items-center ml-4">
                             <h1 className="text-lg font-bold">OverView</h1>

@@ -41,6 +41,7 @@ import Profile from '../src/components/Profile';
 import LoginNew from '../src/screens/LoginNew';
 import Dashboard from '../src/screens/Dashboard';
 import Accounts from '../src/components/Accounts';
+import RegNew from '../../WoxBank/src/screens/RegNew';
 
 function App() {
   return (
@@ -48,11 +49,7 @@ function App() {
 
     <Routes>
       <Route path="login" element={<LoginNew />} />
-
-
-
-
-
+      <Route path="RegNew" element={<RegNew />} />
 
       <Route path="/dashboard" element={<Dashboard />}>
       
