@@ -9,9 +9,9 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import Plus from '../../public/assets/icons/Outlet/plus.svg';
 const transactions = [
-    { id: 1, name: "Grocery Shopping", date: "06.Mar.2023 - 09:39", amount: -10000 },
-    { id: 2, name: "Salary", date: "05.Mar.2023 - 18:00", amount: 50000 },
-    { id: 3, name: "Gym Membership", date: "02.Mar.2023 - 14:20", amount: -1500 }
+    { id: 1, name: "Oluwaben Jamin", date: "05.Mar.2023 - 18:00", amount: -10000 },
+    { id: 2, name: "Oluwaben Jamin", date: "05.Mar.2023 - 18:00", amount: 10000 },
+    { id: 3, name: "Oluwaben Jamin", date: "05.Mar.2023 - 18:00", amount: -10000 }
   ];
 
 const OverView = () => {
@@ -160,7 +160,7 @@ const OverView = () => {
         <div className="flex-1">
           <section className="mb-8">
             <h1 className="text-xl font-bold mb-6">Transactions</h1>
-            <div className="bg-white p-4 shadow rounded-md">
+            <div className="">
               {transactions.map(transaction => (
                 <div key={transaction.id} className="flex justify-between items-center mb-4">
                   <span>{transaction.name}</span>
