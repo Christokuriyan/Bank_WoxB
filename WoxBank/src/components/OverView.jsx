@@ -1,9 +1,18 @@
 
 
+
+
+
+
 import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import Plus from '../../public/assets/icons/Outlet/plus.svg';
+const transactions = [
+    { id: 1, name: "Grocery Shopping", date: "06.Mar.2023 - 09:39", amount: -10000 },
+    { id: 2, name: "Salary", date: "05.Mar.2023 - 18:00", amount: 50000 },
+    { id: 3, name: "Gym Membership", date: "02.Mar.2023 - 14:20", amount: -1500 }
+  ];
 
 const OverView = () => {
   const [dateRange, setDateRange] = useState([null, null]);
@@ -108,7 +117,6 @@ const OverView = () => {
               ))}
             </div>
           </section>
-
           <section className="mb-8">
             <div className="flex justify-between items-center mb-4">
               <h1 className="text-xl font-bold flex items-center space-x-2">
@@ -116,7 +124,7 @@ const OverView = () => {
                 <span>Statistics</span>
               </h1>
               <select
-                className="bg-[#F0F0F0]  rounded shadow p-2"
+                className="bg-[#F0F0F0] border border-gray-300 rounded shadow p-2"
                 value={selectedMonth}
                 onChange={e => setSelectedMonth(e.target.value)}>
                 {monthNames.map((month, index) => (
@@ -149,7 +157,22 @@ const OverView = () => {
 
         {/* Right Section Placeholder */}
         <div className="flex-1">
-          {/* Placeholder or additional content goes here */}
+        <div className="flex-1">
+          <section className="mb-8">
+            <h1 className="text-xl font-bold mb-6">Transactions</h1>
+            <div className="bg-white p-4 shadow rounded-md">
+              {transactions.map(transaction => (
+                <div key={transaction.id} className="flex justify-between items-center mb-4">
+                  <span>{transaction.name}</span>
+                  <span>{transaction.date}</span>
+                  <span className={`font-bold ${transaction.amount < 0 ? 'text-red-500' : 'text-green-500'}`}>
+                    {transaction.amount < 0 ? `- ${Math.abs(transaction.amount).toLocaleString()}` : `+ ${transaction.amount.toLocaleString()}`}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </section>
+        </div>
         </div>
       </div>
     </div>
