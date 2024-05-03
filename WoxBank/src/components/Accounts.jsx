@@ -1,4 +1,6 @@
 import React from 'react';
+import PlusIcon from '../../public/assets/icons/Outlet/plus.svg';  
+import MinusIcon from '../../public/assets/icons/Outlet/fi-sr-minus-small.svg';
 
 const Accounts = () => {
   const accounts = [
@@ -10,20 +12,25 @@ const Accounts = () => {
 
   const transactions = [
     { id: 1, type: '+', name: 'Oluwaben Jamin', method: 'Bank Transfer', date: '06.Mar.2023 - 09:39', amount: '+1000', status: 'Completed' },
-    { id: 2, type: '-', name: 'Adeyemi Bola', method: 'Direct Pay', date: '06.Mar.2023 - 10:00', amount: '-500', status: 'Pending' },
-    { id: 3, type: '+', name: 'Chukwudi Ijele', method: 'Credit Card', date: '06.Mar.2023 - 11:21', amount: '+2000', status: 'Cancelled' }
+    { id: 2, type: '-', name: 'Oluwaben Jamin', method: 'Direct Pay', date: '06.Mar.2023 - 10:00', amount: '-5000', status: 'Pending' },
+    { id: 3, type: '+', name: 'Oluwaben Jamin', method: 'Credit Card', date: '06.Mar.2023 - 11:21', amount: '+2000', status: 'Cancelled' },
+    { id: 4, type: '+', name: 'Oluwaben Jamin', method: 'Bank Transfer', date: '06.Mar.2023 - 09:39', amount: '+1000', status: 'Completed' },
+    { id: 5, type: '+', name: 'Oluwaben Jamin', method: 'Credit Card', date: '06.Mar.2023 - 11:21', amount: '+2000', status: 'Cancelled' },
+    { id: 6, type: '-', name: 'Oluwaben Jamin', method: 'Direct Pay', date: '06.Mar.2023 - 10:00', amount: '-5000', status: 'Pending' },
+    { id: 7, type: '+', name: 'Oluwaben Jamin', method: 'Credit Card', date: '06.Mar.2023 - 11:21', amount: '+2000', status: 'Cancelled' }
   ];
 
   return (
-    <div className="container mx-auto px-4">
+    <div className="container mx-auto px-4  ">
+      
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
         {accounts.map(account => (
-          <div key={account.id} className="bg-white shadow rounded p-4">
-            <h2 className="text-xl font-bold mb-2">{account.title}</h2>
-            <p className="text-lg">{account.currency} {account.amount}</p>
+          <div key={account.id} className=" shadow rounded p-4 bg-[#D4F3E7]">
+            <h2 className="text-sm text-[#46237A] font-bold mb-2">{account.title}</h2>
+            <p className="text-3xl font-semibold">{account.currency} {account.amount}</p>
             <div className="flex justify-between mt-4">
-              <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Fund</button>
-              <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Withdraw</button>
+              <button className="bg-[#33B786] hover:bg-[#33B786] text-white font-bold py-2 px-4 rounded">Fund</button>
+              <button className="bg-[#D4D4D4] hover:bg-[#D4D4D4] text-[ #252525] font-bold py-2 px-4 rounded">Withdraw</button>
             </div>
           </div>
         ))}
@@ -32,19 +39,20 @@ const Accounts = () => {
       <div className="mb-8">
         <h2 className="text-2xl font-bold mb-4">Transactions</h2>
         {transactions.map(transaction => (
-          <div key={transaction.id} className="flex items-center justify-between bg-white shadow rounded p-4 mb-2">
-            <button className={`h-8 w-8 rounded-full ${transaction.type === '+' ? 'bg-green-500' : 'bg-red-500'} text-white flex items-center justify-center`}>
-              {transaction.type}
+          <div key={transaction.id} className="flex items-center justify-between bg-white  rounded p-2 mb-2">
+             <button className={`h-8 w-8 rounded-full ${transaction.type === '+' ? 'bg-[#33B786]' : 'bg-red-500'} text-white flex items-center justify-center`}>
+              <img src={transaction.type === '+' ? PlusIcon : MinusIcon} alt={transaction.type} className="w-6 h-6"/>
             </button>
             <span>{transaction.name}</span>
             <span>{transaction.method}</span>
             <span>{transaction.date}</span>
-            <span className={`${transaction.amount.startsWith('+') ? 'text-green-500' : 'text-red-500'}`}>
+            <span style={{ fontFamily: "'Bebas Neue', sans-serif",fontSize: '24px' }} className={`${transaction.amount.startsWith('+') ? 'text-[#33B786]' : 'text-red-500'}`}>
               {transaction.amount}
             </span>
-            <button className={`py-1 px-3 rounded text-white ${transaction.status === 'Completed' ? 'bg-green-500' : transaction.status === 'Pending' ? 'bg-gray-400' : 'bg-red-500'}`}>
-              {transaction.status}
-            </button>
+            <button className={`w-32 h-10 py-1 px-3 rounded text-white ${transaction.status === 'Completed' ? 'bg-[#33B786]' : transaction.status === 'Pending' ? 'bg-gray-400' : 'bg-red-500'}`}>
+    {transaction.status}
+</button>
+            
           </div>
         ))}
       </div>
