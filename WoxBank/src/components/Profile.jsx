@@ -19,8 +19,14 @@ const Profile = () => {
   };
 
   const transactions = [
-    { id: 1, name: 'Transaction One', date: '06.Mar.2023 - 09:39', amount: '+1000' },
-    { id: 2, name: 'Transaction Two', date: '06.Mar.2023 - 10:00', amount: '-500' }
+    { id: 1, name: 'Oluwaben Jamin', date: '06.Mar.2023 - 09:39', amount: '+1000' },
+    { id: 2, name: 'Oluwaben Jamin', date: '06.Mar.2023 - 10:00', amount: '-500' },
+    { id: 3, name: 'Oluwaben Jamin', date: '06.Mar.2023 - 09:39', amount: '+1000' },
+    { id: 4, name: 'Oluwaben Jamin', date: '06.Mar.2023 - 10:00', amount: '-500' },
+    { id: 5, name: 'Oluwaben Jamin', date: '06.Mar.2023 - 09:39', amount: '+1000' },
+    { id: 6, name: 'Oluwaben Jamin', date: '06.Mar.2023 - 10:00', amount: '-500' },
+    { id: 7, name: 'Oluwaben Jamin', date: '06.Mar.2023 - 09:39', amount: '+1000' },
+    { id: 8, name: 'Oluwaben Jamin', date: '06.Mar.2023 - 10:00', amount: '-500' }
   ];
 
   return (
@@ -52,11 +58,11 @@ const Profile = () => {
 
         {/* Right Section */}
         <div className="flex-1 px-48 ">
-          <div className="bg-green-500 text-white p-4 rounded flex flex-col px">
+          <div className="bg-[#33B786] text-white p-4 rounded flex flex-col px">
             <h2 className="text-xl font-bold">Main Account</h2>
             <div className="flex justify-between items-center mt-2">
               <p className="text-lg">
-                {showAmount ? `${account.currency} ${account.amount}` : '#'}
+                {showAmount ? `${account.currency} ${account.amount}` : '######'}
               </p>
               <button onClick={() => setShowAmount(!showAmount)}>
                 <img src={showAmount ? HideIcon : UnhideIcon} alt="Toggle" className="w-4 h-4" />
@@ -69,7 +75,7 @@ const Profile = () => {
               <div key={transaction.id} className="flex justify-between items-center bg-white p-4 rounded mb-2 shadow">
                 <span>{transaction.name}</span>
                 <span>{transaction.date}</span>
-                <span className={`font-bold ${transaction.amount.startsWith('+') ? 'text-green-500' : 'text-red-500'}`}>
+                <span className={`font-bold ${transaction.amount.startsWith('+') ? 'text-[#33B786]' : 'text-red-500'}`}>
                   {transaction.amount}
                 </span>
               </div>

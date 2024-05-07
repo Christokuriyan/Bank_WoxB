@@ -12,25 +12,25 @@ const Dashboard = () => {
                     </div>
                     <ul className="space-y-4">
                         <li>
-                            <Link to="/dashboard/overview" className="flex items-center space-x-2 text-gray-600 hover:text-blue-500">
+                            <Link to="/dashboard/overview" className="flex items-center space-x-2 text-gray-600 hover:text-[#33B786]">
                                 <img src="../../public/assets/icons/Over.svg" alt="Overview Icon" className="h-6 w-6"/>
                                 <span>Overview</span>
                             </Link>
                         </li>
                         <li>
-                            <Link to="/dashboard/accounts" className="flex items-center space-x-2 text-gray-600 hover:text-blue-500">
+                            <Link to="/dashboard/accounts" className="flex items-center space-x-2 text-gray-600 hover:text-[#33B786]">
                                 <img src="../../public/assets/icons/account.svg" alt="Accounts Icon" className="h-6 w-6"/>
                                 <span>Accounts</span>
                             </Link>
                         </li>
                         <li>
-                            <Link to="/dashboard/Transaction" className="flex items-center space-x-2 text-gray-600 hover:text-blue-500">
+                            <Link to="/dashboard/Transaction" className="flex items-center space-x-2 text-gray-600 hover:text-[#33B786]">
                                 <img src="../../public/assets/icons/transaction.svg" alt="Transaction Icon" className="h-6 w-6"/>
                                 <span>Transaction</span>
                             </Link>
                         </li>
                         <li>
-                            <Link to="/dashboard/profile" className="flex items-center space-x-2 text-gray-600 hover:text-blue-500">
+                            <Link to="/dashboard/profile" className="flex items-center space-x-2 text-gray-600 hover:text-[#33B786]">
                                 <img src="../../public/assets/icons/profile.svg" alt="Profile Icon" className="h-6 w-6"/>
                                 <span>Profile</span>
                             </Link>

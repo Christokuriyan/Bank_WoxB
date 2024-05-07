@@ -12,6 +12,12 @@ const RegNew = () => {
   };
 
   const navigate = useNavigate()
+  
+
+  const handleRegister = () => {
+  
+    navigate('/Login'); // Redirect to dashboard after login
+  };
 
   return (
     <div className="bg-[#D4F3E7] flex flex-col md:flex-row">
@@ -48,7 +54,8 @@ const RegNew = () => {
           <div className="max-w-md w-full space-y-8" style={{ boxShadow: '0px 0px 150px 25px rgba(51, 183, 134, 0.25)' }}>
             <div className="relative rounded-lg bg-white p-8">
               <h2 className="mt-6 text-left text-2xl font-bold text-[#33B786]">Register</h2>
-              <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
+              {/* <form className="mt-8 space-y-6" onSubmit={handleSubmit} > */}
+              <form className="mt-8 space-y-6" onSubmit={(e) => { e.preventDefault(); handleRegister(); }}>
                 <div>
                   <label htmlFor="name" className="text-sm font-medium text-gray-700">Name</label>
                   <input id="name" name="name" type="text" autoComplete="name" required className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-[#33B786] focus:border-[#33B786] sm:text-sm mb-4" placeholder="Your name" />
