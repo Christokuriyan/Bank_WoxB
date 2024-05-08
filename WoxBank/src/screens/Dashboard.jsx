@@ -1,14 +1,24 @@
 
 import { Link, Outlet } from 'react-router-dom';
+import  { useState } from 'react';
+import SearchIcon from '../../public/assets/dashboard/search_icon.svg';
 
 const Dashboard = () => {
+    const [searchTerm, setSearchTerm] = useState("");
+
+    const handleSearch = (event) => {
+        event.preventDefault();
+        // Implement your search logic here
+        console.log("Searching for:", searchTerm);
+    };
+
     return (
-        <div className="flex flex-col min-h-screen bg-gray-100">
+        <div className="flex flex-col min-h-screen bg-gray-100 ml-[60px] mt-[55px]">
             <div className="flex flex-grow">
                 {/* Sidebar Navigation */}
-                <div className="w-64 bg-white p-4 shadow-md">
-                    <div className="flex items-center space-x-4 mb-8">
-                        <img src="../../public/assets/icons/Wox Bank (1).svg" alt="App Logo" className="scale-75" />
+                <div className="w-64 bg-white p-4  ">
+                    <div className="flex items-center space-x-4 mb-8 ">
+                        <img src="../../public/assets/icons/Wox Bank (1).svg" alt="App Logo" className="scale-100" />
                     </div>
                     <ul className="space-y-4">
                         <li>
@@ -41,29 +51,36 @@ const Dashboard = () => {
                 
                 <div className="flex flex-col flex-grow bg-white ">
                     
-                    <div className="bg-white p-4  flex justify-between items-center">
+                    <div className="bg-white mb-16  flex justify-between items-center">
                         
-                        <div className="flex-grow flex justify-start items-center ml-4">
-                            <h1 className="text-lg font-bold">OverView</h1>
+                        <div className="flex-grow flex justify-start items-center ml-8 ">
+                            <h1 className="text-3xl font-semibold">OverView</h1>
                         </div>
 
                         
-                        <div className="flex-grow flex justify-end items-center mr-4">
+                        <div className="flex-grow flex justify-end items-center xl:mr-[292px]">
                             <div className="text-right">
-                            <p className="text-sm" style={{ color: '#33B786' }}>Maureen Oguche</p>
+                            <p className="text-sm font-semibold" style={{ color: '#33B786' }}>Maureen Oguche</p>
 
-                                <p className="text-lg font-bold">1234567890</p>
+                                <p className="text-2xl font-semibold">1234567890</p>
                             </div>
                         </div>
 
                        
-                        <div className="flex items-center space-x-4">
+                        <div className="flex place-items-start space-x-4">
                             
-                            <input 
-                                type="text"
-                                placeholder="Search..."
-                                className="hidden md:block px-3 py-1 border rounded-lg focus:outline-none focus:border-blue-500"
-                            />
+                        <form onSubmit={handleSearch} className="relative">
+                                <input 
+                                    type="text"
+                                    placeholder="Search..."
+                                    className="pl-10 pr-3 py-1 border rounded-lg focus:outline-none focus:border-blue-500"
+                                    value={searchTerm}
+                                    onChange={(e) => setSearchTerm(e.target.value)}
+                                />
+                                <button type="submit" className="absolute left-3 top-1/2 transform -translate-y-1/2">
+                                    <img src={SearchIcon} alt="Search" className="w-4 h-4" />
+                                </button>
+                            </form>
                             
                             <button className="p-2 rounded-full hover:bg-gray-200">
                                 <img src="../../public/assets/icons/notification bell.svg" alt="Notifications" className="h-6 w-6" />
