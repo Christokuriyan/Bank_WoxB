@@ -13,34 +13,35 @@ const Dashboard = () => {
     };
 
     return (
-        <div className="flex flex-col min-h-screen bg-gray-100 ml-[60px] mt-[55px]">
-            <div className="flex flex-grow">
+        <div className="flex flex-col min-h-screen bg-gray-100 ml-[60px] mt-[55px] ">
+            
+            <div className="flex flex-grow ">
                 {/* Sidebar Navigation */}
-                <div className="w-64 bg-white p-4  ">
+                <div className="w-64 bg-white p-4   ">
                     <div className="flex items-center space-x-4 mb-8 ">
                         <img src="../../public/assets/icons/Wox Bank (1).svg" alt="App Logo" className="scale-100" />
-                    </div>
-                    <ul className="space-y-4">
+                    </div >
+                    <ul className="space-y-7 ">
                         <li>
-                            <Link to="/dashboard/overview" className="flex items-center space-x-2 text-gray-600 hover:text-[#33B786]">
+                            <Link to="/dashboard/overview" className="flex items-center space-x-4  text-gray-600 hover:text-[#33B786]">
                                 <img src="../../public/assets/icons/Over.svg" alt="Overview Icon" className="h-6 w-6"/>
                                 <span>Overview</span>
                             </Link>
                         </li>
                         <li>
-                            <Link to="/dashboard/accounts" className="flex items-center space-x-2 text-gray-600 hover:text-[#33B786]">
+                            <Link to="/dashboard/accounts" className="flex items-center space-x-4 text-gray-600 hover:text-[#33B786]">
                                 <img src="../../public/assets/icons/account.svg" alt="Accounts Icon" className="h-6 w-6"/>
                                 <span>Accounts</span>
                             </Link>
                         </li>
                         <li>
-                            <Link to="/dashboard/Transaction" className="flex items-center space-x-2 text-gray-600 hover:text-[#33B786]">
+                            <Link to="/dashboard/Transaction" className="flex items-center space-x-4 text-gray-600 hover:text-[#33B786]">
                                 <img src="../../public/assets/icons/transaction.svg" alt="Transaction Icon" className="h-6 w-6"/>
                                 <span>Transaction</span>
                             </Link>
                         </li>
                         <li>
-                            <Link to="/dashboard/profile" className="flex items-center space-x-2 text-gray-600 hover:text-[#33B786]">
+                            <Link to="/dashboard/profile" className="flex items-center space-x-4 text-gray-600 hover:text-[#33B786]">
                                 <img src="../../public/assets/icons/profile.svg" alt="Profile Icon" className="h-6 w-6"/>
                                 <span>Profile</span>
                             </Link>
@@ -49,16 +50,16 @@ const Dashboard = () => {
                 </div>
 
                 
-                <div className="flex flex-col flex-grow bg-white ">
+                <div className="flex flex-col flex-grow bg-white justify-start xl-items-start ">
                     
-                    <div className="bg-white mb-16  flex justify-between items-center">
+                    <div className="bg-white mb-16  flex justify-start ">
                         
-                        <div className="flex-grow flex justify-start items-center ml-8 ">
+                        <div className="flex-grow flex justify-start items-center ml-8 relative">
                             <h1 className="text-3xl font-semibold">OverView</h1>
                         </div>
 
                         
-                        <div className="flex-grow flex justify-end items-center xl:mr-[292px]">
+                        <div className="flex-grow flex justify-end items-center xl:mr-[90px] ">
                             <div className="text-right">
                             <p className="text-sm font-semibold" style={{ color: '#33B786' }}>Maureen Oguche</p>
 
@@ -67,18 +68,18 @@ const Dashboard = () => {
                         </div>
 
                        
-                        <div className="flex place-items-start space-x-4">
+                        <div className="flex place-items-start space-x-6 pr-20 flex-grow">
                             
                         <form onSubmit={handleSearch} className="relative">
                                 <input 
                                     type="text"
                                     placeholder="Search..."
-                                    className="pl-10 pr-3 py-1 border rounded-lg focus:outline-none focus:border-blue-500"
+                                    className="pl-10 pr-3 py-1 border rounded-lg focus:outline-none focus:border-blue-500  "
                                     value={searchTerm}
                                     onChange={(e) => setSearchTerm(e.target.value)}
                                 />
                                 <button type="submit" className="absolute left-3 top-1/2 transform -translate-y-1/2">
-                                    <img src={SearchIcon} alt="Search" className="w-4 h-4" />
+                                    <img src={SearchIcon} alt="Search" className="w-4 h-4 " />
                                 </button>
                             </form>
                             
