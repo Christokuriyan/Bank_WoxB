@@ -176,6 +176,8 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import Plus from '../../public/assets/icons/Outlet/plus.svg';
 import bgImage from '../../public/assets/icons/bgimg/Rectangle 167.jpg'; // Example path, adjust as necessary
+import '../../src/screens/transactionStyle.css';
+
 
 const transactions = [
     { id: 1, name: "Oluwaben Jamin", date: "05.Mar.2023 - 18:00", amount: -10000 },
@@ -212,8 +214,8 @@ const OverView = () => {
   };
 
   return (
-    <div className="container mx-auto px-4">
-      <div className="flex flex-col md:flex-row gap-4">
+    <div className="container mx-auto px-9">
+      <div className="flex flex-col md:flex-row xl:gap-[100px]">
         {/* Left Section */}
         <div className="flex-1">
           <section className="mb-8">
@@ -323,20 +325,21 @@ const OverView = () => {
         </div>
 
         {/* Right Section */}
-        <div className="flex-1">
-          <section className="mb-8">
-            <h1 className="text-xl font-bold mb-6">Transactions</h1>
+        <div className="flex-1 ">
+          <section className="mb-8 xl:mr-44 ">
+            <h1 className="text-xl font-bold mb-6 ">Transactions</h1>
             <div className="">
-              {transactions.map(transaction => (
-                <div key={transaction.id} className="flex justify-between items-center mb-4">
-                  <span>{transaction.name}</span>
-                  <span>{transaction.date}</span>
-                  <span className={`font-bold ${transaction.amount < 0 ? 'text-red-500' : 'text-green-500'}`}>
-                    {transaction.amount < 0 ? `- ${Math.abs(transaction.amount).toLocaleString()}` : `+ ${transaction.amount.toLocaleString()}`}
-                  </span>
-                </div>
-              ))}
-            </div>
+  {transactions.map(transaction => (
+    <div key={transaction.id} className="flex justify-between items-center mb-4">
+      <span className="transaction-details">{transaction.name}</span>
+      <span className="transaction-details">{transaction.date}</span>
+      <span className={`font-bold ${transaction.amount < 0 ? 'text-red-500' : 'text-green-500'}`}>
+        {transaction.amount < 0 ? `- ${Math.abs(transaction.amount).toLocaleString()}` : `+ ${transaction.amount.toLocaleString()}`}
+      </span>
+    </div>
+  ))}
+</div>
+
             {/* Upgrade to PRO button */}
             <div className="mt-8 rounded-lg shadow-lg overflow-hidden">
               <div className="bg-cover bg-center p-8 text-white" style={{ backgroundImage: `url(${bgImage})` }}>
