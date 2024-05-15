@@ -21,42 +21,41 @@ const Accounts = () => {
   ];
 
   return (
-    <div className="container mx-auto px-4  ">
-      
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-        {accounts.map(account => (
-          <div key={account.id} className=" shadow rounded p-4 bg-[#D4F3E7]">
-            <h2 className="text-sm text-[#46237A] font-bold mb-2">{account.title}</h2>
-            <p className="text-3xl font-semibold">{account.currency} {account.amount}</p>
-            <div className="flex justify-between mt-4">
-              <button className="bg-[#33B786] hover:bg-[#33B786] text-white font-bold py-2 px-4 rounded">Fund</button>
-              <button className="bg-[#D4D4D4] hover:bg-[#D4D4D4] text-[ #252525] font-bold py-2 px-4 rounded">Withdraw</button>
-            </div>
+    <div className="container mx-auto px-48 pl-2 ">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+      {accounts.map(account => (
+        <div key={account.id} className="shadow rounded p-7  bg-[#D4F3E7]">
+          <h2 className="text-xs text-[#46237A] font-bold mb-1">{account.title}</h2>
+          <p className="text-lg font-semibold">{account.currency} {account.amount}</p>
+          <div className="flex justify-evenly mt-2">
+            <button className="bg-[#33B786] hover:bg-[#33B786] text-white font-bold py-2 px-4 rounded text-xs">Fund</button>
+            <button className="bg-[#D4D4D4] hover:bg-[#D4D4D4] text-[ #252525] font-bold py-1 px-2 rounded text-xs">Withdraw</button>
           </div>
-        ))}
-      </div>
-
-      <div className="mb-8">
-        <h2 className="text-2xl font-bold mb-4">Transactions</h2>
-        {transactions.map(transaction => (
-          <div key={transaction.id} className="flex items-center justify-between bg-white  rounded p-2 mb-2">
-             <button className={`h-8 w-8 rounded-full ${transaction.type === '+' ? 'bg-[#33B786]' : 'bg-red-500'} text-white flex items-center justify-center`}>
-              <img src={transaction.type === '+' ? PlusIcon : MinusIcon} alt={transaction.type} className="w-6 h-6"/>
-            </button>
-            <span>{transaction.name}</span>
-            <span>{transaction.method}</span>
-            <span>{transaction.date}</span>
-            <span style={{ fontFamily: "'Bebas Neue', sans-serif",fontSize: '24px' }} className={`${transaction.amount.startsWith('+') ? 'text-[#33B786]' : 'text-red-500'}`}>
-              {transaction.amount}
-            </span>
-            <button className={`w-32 h-10 py-1 px-3 rounded text-white ${transaction.status === 'Completed' ? 'bg-[#33B786]' : transaction.status === 'Pending' ? 'bg-gray-400' : 'bg-red-500'}`}>
-    {transaction.status}
-</button>
-            
-          </div>
-        ))}
-      </div>
+        </div>
+      ))}
     </div>
+  
+    <div className="mb-8">
+      <h2 className="text-lg font-bold mb-4">Transactions</h2>
+      {transactions.map(transaction => (
+        <div key={transaction.id} className="flex items-center justify-between bg-white rounded p-2 mb-2">
+          <button className={`h-6 w-6 rounded-full ${transaction.type === '+' ? 'bg-[#33B786]' : 'bg-red-500'} text-white flex items-center justify-center`}>
+            <img src={transaction.type === '+' ? PlusIcon : MinusIcon} alt={transaction.type} className="w-4 h-4" />
+          </button>
+          <span className="text-xs">{transaction.name}</span>
+          <span className="text-xs">{transaction.method}</span>
+          <span className="text-xs">{transaction.date}</span>
+          <span className={`font-bold ${transaction.amount.startsWith('+') ? 'text-[#33B786]' : 'text-red-500'} text-xs`}>
+            {transaction.amount}
+          </span>
+          <button className={`w-20 h-8 py-1 px-2 rounded text-white text-xs ${transaction.status === 'Completed' ? 'bg-[#33B786]' : transaction.status === 'Pending' ? 'bg-gray-400' : 'bg-red-500'}`}>
+            {transaction.status}
+          </button>
+        </div>
+      ))}
+    </div>
+  </div>
+  
   );
 }
 

@@ -94,12 +94,12 @@ const OverView = () => {
                     {showAccountNumbers && (
                       <p className="flex items-center" style={{
                         fontFamily: 'Lato',
-                        fontSize: '23px',
-                        fontWeight: 600,
+                        fontSize: '20px',
+                        fontWeight: 550,
                         lineHeight: '32.4px',
                         textAlign: 'left'
                       }}>
-                        <i className="fa fa-money" aria-hidden="true"></i> ₦ 10,000.00
+                        <i className="fa fa-money" aria-hidden="true"></i> ₦ 44,500.00
                       </p>
                     )}
                   </div>
@@ -108,8 +108,8 @@ const OverView = () => {
                     {showAccountNumbers && (
                       <p className="flex items-center" style={{
                         fontFamily: 'Lato',
-                        fontSize: '23px',
-                        fontWeight: 600,
+                        fontSize: '20px',
+                        fontWeight:550,
                         lineHeight: '32.4px',
                         textAlign: 'left'
                       }}>
@@ -122,8 +122,8 @@ const OverView = () => {
                     {showAccountNumbers && (
                       <p className="flex items-center" style={{
                         fontFamily: 'Lato',
-                        fontSize: '23px',
-                        fontWeight: 600,
+                        fontSize: '20px',
+                        fontWeight: 550,
                         lineHeight: '32.4px',
                         textAlign: 'left'
                       }}>
@@ -142,20 +142,21 @@ const OverView = () => {
                 <img src={Plus} alt="Add" />
               </button>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm">
-              {['Main Account', 'Savings Account', 'Investment Account'].map((account, index) => (
-                <div key={index} className="bg-white p-4 shadow rounded-md text-center" style={{ backgroundColor: '#D4F3E7' }}>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm ">
+              {['Main Account', 'School Savings', 'Holiday Plan'].map((account, index) => (
+                <div key={index} className="bg-white p-4 shadow rounded-md text-left" style={{ backgroundColor: '#D4F3E7' }}>
                   <h2 className={`font-semibold ${index === 0 ? 'text-[#46237A]' : index === 1 ? 'text-[#46237A]' : index === 2 ? 'text-[#46237A]' : ''}`}>{account}</h2>
-                  <p className="flex justify-center items-center space-x-2">
+                  <p className=" ">
                     <i className="fa fa-money" aria-hidden="true"></i>
-                    <p className="flex items-center" style={{
+                    <p style={{
+                      
                       fontFamily: 'Lato',
-                      fontSize: '23px',
+                      fontSize: '20px',
                       fontWeight: 600,
                       lineHeight: '32.4px',
-                      textAlign: 'left'
+                     
                     }}>
-                      <i className="fa fa-money" aria-hidden="true"></i> ₦ 10,000.00
+                       ₦ 10,000.00
                     </p>
                   </p>
 
@@ -176,32 +177,33 @@ const OverView = () => {
                 ))}
               </select>
             </div>
-            <div className="bg-white p-4 shadow rounded-md">
+            <div className="bg-white p-4  rounded-md">
               <div className="flex items-center justify-between mb-4">
                 <img src="../../public/assets/icons/Outlet/image 32.svg" alt="Logo" className="h-12 w-12 mr-4" />
                 <h2 className="font-semibold">Income</h2>
-                <div className="w-[15rem] bg-gray-200 h-4 rounded-full mx-4">
-                  <div className="bg-green-500 h-4 rounded-full" style={{ width: "60%" }}></div>
+                <div className="w-[10rem] bg-gray-200 h-4 rounded-full mx-4">
+                  <div className="bg-[#33B786] h-4 rounded-full" style={{ width: "60%" }}></div>
                 </div>
-                <p className="flex items-center" style={{
+                <p className="flex items-center text-[#555555]" style={{
                   fontFamily: 'Lato',
-                  fontSize: '23px',
+                  fontSize: '20px',
                   fontWeight: 600,
                   lineHeight: '32.4px',
-                  textAlign: 'left'
+                  textAlign: 'left',
+                  
                 }}>
-                  <i className="fa fa-money" aria-hidden="true"></i> ₦ 10,000.00
+                   ₦ 10,000.00
                 </p>
               </div>
               <div className="flex items-center justify-between mb-4">
                 <img src="../../public/assets/icons/Outlet/image 34.svg" alt="Logo" className="h-12 w-12 mr-4" />
                 <h2 className="font-semibold">Expense</h2>
-                <div className="w-[15rem] bg-gray-200 h-4 rounded-full mx-4">
+                <div className="w-[10rem] bg-gray-200 h-4 rounded-full mx-4">
                   <div className="bg-red-500 h-4 rounded-full" style={{ width: "20%" }}></div>
                 </div>
-                <p className="flex items-center" style={{
+                <p className="flex items-center text-[#555555]" style={{
                   fontFamily: 'Lato',
-                  fontSize: '23px',
+                  fontSize: '20px',
                   fontWeight: 600,
                   lineHeight: '32.4px',
                   textAlign: 'left'
@@ -222,9 +224,10 @@ const OverView = () => {
                 <div key={transaction.id} className="flex justify-between items-center mb-4">
                   <span className="transaction-details">{transaction.name}</span>
                   <span className="transaction-details">{transaction.date}</span>
-                  <span className={`font-bold ${transaction.amount < 0 ? 'text-red-500' : 'text-green-500'}`}>
-                    {transaction.amount < 0 ? `- ${Math.abs(transaction.amount).toLocaleString()}` : `+ ${transaction.amount.toLocaleString()}`}
-                  </span>
+                  <span className={`font-semibold ${transaction.amount < 0 ? 'text-red-500' : 'text-green-500'}`} style={{ fontFamily: 'Bebas Neue' }}>
+  {transaction.amount < 0 ? `- ${Math.abs(transaction.amount).toLocaleString()}` : `+ ${transaction.amount.toLocaleString()}`}
+</span>
+
                 </div>
               ))}
             </div>
