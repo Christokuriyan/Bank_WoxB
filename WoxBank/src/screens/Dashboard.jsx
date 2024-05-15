@@ -82,11 +82,12 @@ const Dashboard = () => {
                             </form>
 
                             <button className="p-2 rounded-full hover:bg-gray-200">
-                                <img src="../../public/assets/icons/notification bell.svg" alt="Notifications" className="h-6 w-6" />
+                                <img src="../../public/assets/icons/notification bell.svg" alt="Notifications" className="h-5 w-5" />
                             </button>
 
-
-                            <img src="../../public/assets/icons/profilepic.png" alt="User Profile" className="h-10 w-10 rounded-full border-2 border-blue-500" />
+                            <button >
+                            <img src="../../public/assets/icons/profilepic.png" alt="User Profile" className="h-10 w-10 rounded-full " />
+                            </button>
                         </div>
                     </div>
 
