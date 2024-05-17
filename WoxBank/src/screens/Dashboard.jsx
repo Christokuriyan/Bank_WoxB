@@ -13,11 +13,11 @@ const Dashboard = () => {
     };
 
     return (
-        <div className="flex flex-col min-h-screen bg-gray-100 ml-[60px] mt-[55px] ">
+        <div className="flex flex-col min-h-screen bg-red-100 ml-[60px] mt-[55px] ">
 
             <div className="flex flex-grow ">
                 {/* Sidebar Navigation */}
-                <div className="w-64 bg-white p-4   ">
+                <div style={{ backgroundColor: '#f5fcf9' }} className="w-64 p-4   ">
                     <div className="flex items-center space-x-4 xl:mb-[84px]  ">
                         <img src="../../public/assets/icons/Wox Bank (1).svg" alt="App Logo" className="scale-100" />
                     </div >
@@ -49,9 +49,9 @@ const Dashboard = () => {
                         </li>
                     </ul>
                 </div>
-                <div className="flex flex-col flex-grow bg-white justify-start xl-items-start ">
+                <div className="flex flex-col flex-grow bg-[#f5fcf9] justify-start xl-items-start ">
 
-                    <div className="bg-white mb-16  flex justify-start ">
+                    <div className="bg-[#f5fcf9] mb-16  flex justify-start ">
 
                         <div className="flex-grow flex justify-start items-center ml-8 relative">
                             <h1 className="text-3xl font-semibold">OverView</h1>
@@ -66,18 +66,18 @@ const Dashboard = () => {
                             </div>
                         </div>
 
-                        <div className="flex place-items-start space-x-6 pr-20 flex-grow">
+                        <div className="flex place-items-start space-x-6 pr-20 flex-grow ">
 
-                            <form onSubmit={handleSearch} className="relative">
+                            <form onSubmit={handleSearch} className="relative" style={{ backgroundColor: '#f5fcf9' }}>
                                 <input
                                     type="text"
                                     placeholder="Search..."
-                                    className="pl-10 pr-3 py-1 "
+                                    className="pl-10 pr-3 py-1 bg-[#f5fcf9] "
                                     value={searchTerm}
                                     onChange={(e) => setSearchTerm(e.target.value)}
                                 />
-                                <button type="submit" className="absolute left-3 top-1/2 transform -translate-y-1/2">
-                                    <img src={SearchIcon} alt="Search" className="w-4 h-4 " />
+                                <button type="submit" className="absolute left-3 top-1/2 transform -translate-y-1/2 ">
+                                    <img src={SearchIcon} alt="Search" className="w-4 h-4 " /> 
                                 </button>
                             </form>
 
@@ -86,7 +86,7 @@ const Dashboard = () => {
                             </button>
 
                             <button >
-                            <img src="../../public/assets/icons/profilepic.png" alt="User Profile" className="h-10 w-10 rounded-full " />
+                                <img src="../../public/assets/icons/profilepic.png" alt="User Profile" className="h-10 w-10 rounded-full " />
                             </button>
                         </div>
                     </div>

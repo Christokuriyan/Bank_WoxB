@@ -5,9 +5,6 @@ import MinusIcon from '../../public/assets/icons/Outlet/fi-sr-minus-small.svg';
 
 import YourIcon from '../../public/assets/icons/Outlet/nw-arr.svg'
 
-
-
-
 const Accounts = () => {
   const accounts = [
     { id: 1, title: 'Main Account', currency: '₦', amount: '50,000' },
@@ -27,7 +24,7 @@ const Accounts = () => {
   ];
 
   return (
-    <div className="container mx-auto px-48 pl-2 ">
+    <div className="container mx-auto px-48 pl-2   ">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
         {accounts.map(account => (
           <div key={account.id} className={`shadow rounded p-7 ${account.custom ? 'bg-[#F0F0F0BF]' : 'bg-[#D4F3E7]'} `}>
@@ -53,34 +50,36 @@ const Accounts = () => {
           </div>
         ))}
       </div>
+      <div className="mb-8">
+  <div className="mb-8 flex items-center justify-between">
+    <h2 className="text-lg font-bold mb-4">Transactions</h2>
+    <button className="text-sm text-[#33B786] hover:text-[#33B786] flex items-center gap-1">
+      View All
+      <img src={YourIcon} alt="Icon" className="w-7" />
+    </button>
+  </div>
 
-      <div className="mb-8 ">
-        <div className="mb-8 flex items-center justify-between ">
-          <h2 className="text-lg font-bold mb-4">Transactions</h2>
-          <button className="text-sm text-[#33B786] hover:text-[#33B786] flex items-center gap-1">
-            View All
-            <img src={YourIcon} alt="Icon" className="w-7 " />
-          </button>
-        </div>
-
-        {transactions.map(transaction => (
-          <div key={transaction.id} className="flex items-start  justify-between bg-white rounded p-2 mb-2">
-            <button className={`h-8 w-8 rounded-full ${transaction.type === '+' ? 'bg-[#33B786]' : 'bg-red-500'} text-white flex items-center justify-center`}>
-              <img src={transaction.type === '+' ? PlusIcon : MinusIcon} alt={transaction.type} className="w-6 h-6" />
-            </button>
-            <span className="text-base w-[10rem] ">{transaction.name}</span>
-            <span className="text-base w-[10rem]">{transaction.method}</span>
-            <span className="text-base w-[10rem]">{transaction.date}</span>
-            <span style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: '24px' }} className={`${transaction.amount.startsWith('+') ? 'text-[#33B786]' : 'text-red-500'}`}>
-              {transaction.amount}
-            </span>
-            <button className={`w-36 h-8 py-1 px-2 rounded text-[background: #555555;
-] text-xs ${transaction.status === 'Completed' ? 'bg-[#33B786]' : transaction.status === 'Pending' ? 'bg-[#D4D4D4]' : 'bg-red-500'}`}>
-              {transaction.status}
-            </button>
-          </div>
-        ))}
+  {transactions.map(transaction => (
+    <div key={transaction.id} className="mb-2">
+      <div className="flex items-start justify-between bg-[#f5fcf9] rounded p-2">
+        <button className={`h-8 w-8 rounded-full ${transaction.type === '+' ? 'bg-[#33B786]' : 'bg-red-500'} text-white flex items-center justify-center`}>
+          <img src={transaction.type === '+' ? PlusIcon : MinusIcon} alt={transaction.type} className="w-6 h-6" />
+        </button>
+        <span className="text-base w-[10rem] text-[#8C8C8C] font-semibold">{transaction.name}</span>
+        <span className="text-base w-[10rem] text-[#8C8C8C] font-semibold">{transaction.method}</span>
+        <span className="text-base w-[10rem] text-[#8C8C8C] font-semibold">{transaction.date}</span>
+        <span style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: '24px' }} className={`${transaction.amount.startsWith('+') ? 'text-[#33B786]' : 'text-red-500'}`}>
+          {transaction.amount}
+        </span>
+        <button className={`w-36 h-8 py-1 px-2 rounded text-xs ${transaction.status === 'Completed' ? 'bg-[#33B786] text-white text-sm font-bold' : transaction.status === 'Pending' ? 'bg-[#D4D4D4] text-[#555555] text-xs font-bold' : 'bg-[#E74F5B] text-white text-xs font-bold'}`}>
+          {transaction.status}
+        </button>
       </div>
+      <hr className="border-t border-gray-200 " />
+    </div>
+  ))}
+</div>
+
     </div>
   );
 }

@@ -42,7 +42,7 @@ const OverView = () => {
   };
 
   return (
-    <div className="container mx-auto px-9">
+    <div className="container mx-auto px-9 bg-[#f5fcf9]">
       <div className="flex flex-col md:flex-row xl:gap-[100px]">
         {/* Left Section */}
         <div className="flex-1">

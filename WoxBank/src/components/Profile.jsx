@@ -32,9 +32,7 @@ const Profile = () => {
   return (
     <div className="relative">
       {/* Background Image with proper style */}
-      
-
-      <div className="container mx-auto px-8 py-10 flex flex-col md:flex-row gap-8 bg-[url('WoxBank\public\assets\registrations\new.png')] bg-cover bg-center relative z-10">
+      <div className="container mx-auto px-8 py-10 flex flex-col md:flex-row gap-8 bg-[url('WoxBank\\public\\assets\\registrations\\new.png')] bg-cover bg-center relative z-10">
         {/* Left Section */}
         <div className="flex-1 flex flex-col items-center">
           <div className="relative">
@@ -57,7 +55,7 @@ const Profile = () => {
         </div>
 
         {/* Right Section */}
-        <div className="flex-1 px-48 ">
+        <div className="flex-1 px-48">
           <div className="bg-[#33B786] text-white p-4 rounded flex flex-col px">
             <h2 className="text-xl font-bold">Main Account</h2>
             <div className="flex justify-between items-center mt-2">
@@ -72,12 +70,15 @@ const Profile = () => {
           <div className="mt-6">
             <h2 className="text-xl font-bold mb-4">Transactions</h2>
             {transactions.map(transaction => (
-              <div key={transaction.id} className="flex justify-between items-center bg-white p-4 rounded mb-2 shadow">
-                <span>{transaction.name}</span>
-                <span>{transaction.date}</span>
-                <span className={`font-bold ${transaction.amount.startsWith('+') ? 'text-[#33B786]' : 'text-red-500'}`}>
-                  {transaction.amount}
-                </span>
+              <div key={transaction.id} className=""> {/* Added wrapping div with margin bottom */}
+                <div className="flex justify-between items-center bg-[#f5fcf9] p-4 rounded">
+                  <span>{transaction.name}</span>
+                  <span>{transaction.date}</span>
+                  <span className={`font-bold ${transaction.amount.startsWith('+') ? 'text-[#33B786]' : 'text-red-500'}`}>
+                    {transaction.amount}
+                  </span>
+                </div>
+                <hr className="border-t border-gray-200" /> {/* Added horizontal rule for separation */}
               </div>
             ))}
           </div>

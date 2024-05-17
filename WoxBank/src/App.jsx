@@ -76,6 +76,7 @@ import Accounts from './components/Accounts';
 import Transaction from './components/Transaction';
 import Profile from './components/Profile';
 import OtpNew from '../src/screens/OtpNew'
+import WithdrawForm from '../src/screens/WithdrawForm'
 
 function App() {
   return (
@@ -95,6 +96,7 @@ function App() {
           <Route path="profile" element={<Profile />} />
         </Route>
         {/* Add additional routes as needed */}
+        <Route path="withdraw" element={<WithdrawForm />} />
       </Routes>
     </BrowserRouter>
   );
