@@ -17,7 +17,7 @@ const OtpInput = ({ otp, setOtp }) => {
     newOtp[index] = element.value;
     setOtp(newOtp.join(""));  
 
-   t
+   
     if (element.nextSibling && element.value) {
       element.nextSibling.focus();
     }
@@ -44,7 +44,7 @@ const OtpInput = ({ otp, setOtp }) => {
 
 const OtpNew = () => {
   const [otp, setOtp] = useState('');
-  const [timeLeft, setTimeLeft] = useState(300); n
+  const [timeLeft, setTimeLeft] = useState(300); 
 
   useEffect(() => {
    

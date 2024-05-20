@@ -87,6 +87,8 @@ function App() {
         <Route path="/register" element={<RegNew />} />
         <Route path="/Otp" element={<OtpNew />} />
         <Route path="/dashboard" element={<Dashboard />}>
+        <Route path="/FundWallet" element={<Dashboard />}>
+
           
 
           <Route index element={<Overview />} />

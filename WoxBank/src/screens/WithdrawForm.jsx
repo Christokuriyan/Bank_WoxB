@@ -26,12 +26,15 @@ const WithdrawForm = () => {
       <div
         className="bg-white p-8 rounded-lg "
         style={{
-          width: '320px',
+          width: '360px',
           maxWidth: '90%',
-          boxShadow: '#33B786'
+          boxShadow: '0px 0px 150px 25px rgba(51, 183, 134, 0.25)',
         }}
       >
-        <h2 className="text-2xl font-bold mb-6 text-center">Withdraw</h2>
+
+
+
+        <h2 className="text-3xl font-bold mb-5 text-left text-[#33B786]">Withdraw</h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <label htmlFor="amount" className="block text-sm font-medium text-gray-700">Amount</label>
@@ -41,7 +44,7 @@ const WithdrawForm = () => {
               id="amount"
               value={formData.amount}
               onChange={handleChange}
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:[#33B786] focus:[#33B786] sm:text-sm"
               placeholder="100,000"
             />
           </div>
@@ -53,7 +56,7 @@ const WithdrawForm = () => {
               id="accountNumber"
               value={formData.accountNumber}
               onChange={handleChange}
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:[#33B786] focus:border-[#33B786] sm:text-sm"
               placeholder="00 00 00 00 00"
             />
           </div>
@@ -65,7 +68,7 @@ const WithdrawForm = () => {
               id="accountName"
               value={formData.accountName}
               onChange={handleChange}
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:[#33B786] focus:[#33B786] sm:text-sm"
               placeholder="Enter account name"
             />
           </div>
@@ -76,7 +79,7 @@ const WithdrawForm = () => {
               id="bank"
               value={formData.bank}
               onChange={handleChange}
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              className="mt-1 block w-full px-3 py-2 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:[#33B786] focus:[#33B786] sm:text-sm"
             >
               <option value="">Bank Name</option>
               <option value="bank1">Bank 1</option>
