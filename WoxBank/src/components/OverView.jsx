@@ -220,17 +220,17 @@ const OverView = () => {
           <section className="mb-8 xl:mr-44 ">
             <h1 className="text-xl font-bold mb-6 ">Transactions</h1>
             <div className="">
-              {transactions.map(transaction => (
-                <div key={transaction.id} className="flex justify-between items-center mb-4">
-                  <span className="transaction-details">{transaction.name}</span>
-                  <span className="transaction-details">{transaction.date}</span>
-                  <span className={`font-semibold ${transaction.amount < 0 ? 'text-red-500' : 'text-green-500'}`} style={{ fontFamily: 'Bebas Neue' }}>
-  {transaction.amount < 0 ? `- ${Math.abs(transaction.amount).toLocaleString()}` : `+ ${transaction.amount.toLocaleString()}`}
-</span>
+  {transactions.map(transaction => (
+    <div key={transaction.id} className="flex justify-between items-center mb-1 border-b border-gray-300 pb-1">
+      <span className="transaction-details">{transaction.name}</span>
+      <span className="transaction-details">{transaction.date}</span>
+      <span className={`font-semibold ${transaction.amount < 0 ? 'text-red-500' : 'text-green-500'}`} style={{ fontFamily: 'Bebas Neue' }}>
+        {transaction.amount < 0 ? `- ${Math.abs(transaction.amount).toLocaleString()}` : `+ ${transaction.amount.toLocaleString()}`}
+      </span>
+    </div>
+  ))}
+</div>
 
-                </div>
-              ))}
-            </div>
 
             {/* Upgrade to PRO button */}
             <div className="mt-8 rounded-lg shadow-lg overflow-hidden">

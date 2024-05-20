@@ -95,7 +95,8 @@ function App() {
           <Route path="transaction" element={<Transaction />} />
           <Route path="profile" element={<Profile />} />
         </Route>
-        {/* Add additional routes as needed */}
+        <Route path="/accounts" element={<Accounts />} />
+        <Route path="/withdrawForm" element={<WithdrawForm />} />
         <Route path="withdraw" element={<WithdrawForm />} />
       </Routes>
     </BrowserRouter>

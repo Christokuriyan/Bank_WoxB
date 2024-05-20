@@ -19,13 +19,13 @@ const Profile = () => {
   };
 
   const transactions = [
-    { id: 1, name: 'Oluwaben Jamin', date: '06.Mar.2023 - 09:39', amount: '+1000' },
+    { id: 1, name: 'Oluwaben Jamin', date: '06.Mar.2023 - 09:39', amount: '1000' },
     { id: 2, name: 'Oluwaben Jamin', date: '06.Mar.2023 - 10:00', amount: '-500' },
-    { id: 3, name: 'Oluwaben Jamin', date: '06.Mar.2023 - 09:39', amount: '+1000' },
+    { id: 3, name: 'Oluwaben Jamin', date: '06.Mar.2023 - 09:39', amount: '1000' },
     { id: 4, name: 'Oluwaben Jamin', date: '06.Mar.2023 - 10:00', amount: '-500' },
-    { id: 5, name: 'Oluwaben Jamin', date: '06.Mar.2023 - 09:39', amount: '+1000' },
+    { id: 5, name: 'Oluwaben Jamin', date: '06.Mar.2023 - 09:39', amount: '1000' },
     { id: 6, name: 'Oluwaben Jamin', date: '06.Mar.2023 - 10:00', amount: '-500' },
-    { id: 7, name: 'Oluwaben Jamin', date: '06.Mar.2023 - 09:39', amount: '+1000' },
+    { id: 7, name: 'Oluwaben Jamin', date: '06.Mar.2023 - 09:39', amount: '1000' },
     { id: 8, name: 'Oluwaben Jamin', date: '06.Mar.2023 - 10:00', amount: '-500' }
   ];
 
@@ -70,16 +70,14 @@ const Profile = () => {
           <div className="mt-6">
             <h2 className="text-xl font-bold mb-4">Transactions</h2>
             {transactions.map(transaction => (
-              <div key={transaction.id} className=""> {/* Added wrapping div with margin bottom */}
-                <div className="flex justify-between items-center bg-[#f5fcf9] p-4 rounded">
-                  <span>{transaction.name}</span>
-                  <span>{transaction.date}</span>
-                  <span className={`font-bold ${transaction.amount.startsWith('+') ? 'text-[#33B786]' : 'text-red-500'}`}>
-                    {transaction.amount}
-                  </span>
-                </div>
-                <hr className="border-t border-gray-200" /> {/* Added horizontal rule for separation */}
-              </div>
+               <div key={transaction.id} className="flex justify-between items-center mb-1 border-b border-gray-300 pb-1">
+              <span className="transaction-details">{transaction.name}</span>
+              <span className="transaction-details">{transaction.date}</span>
+              <span className={`font-semibold ${transaction.amount < 0 ? 'text-red-500' : 'text-green-500'}`} style={{ fontFamily: 'Bebas Neue' }}>
+{transaction.amount < 0 ? `- ${Math.abs(transaction.amount).toLocaleString()}` : `+ ${transaction.amount.toLocaleString()}`}
+</span>
+
+            </div>
             ))}
           </div>
         </div>
