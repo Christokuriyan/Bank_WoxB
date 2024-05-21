@@ -113,6 +113,9 @@ const Accounts = () => {
   const handleWithdraw = () => {
     navigate('/withdrawForm'); // Navigate to WithdrawForm
   };
+  const handleFundWallet = () => {
+    navigate('/FundWallet'); // Navigate to WithdrawForm
+  };
 
   return (
     <div className="container mx-auto px-48 pl-2">
@@ -132,7 +135,7 @@ const Accounts = () => {
                 <h2 className="text-xs text-[#46237A] font-bold mb-1">{account.title}</h2>
                 <p className="text-2xl font-bold">{account.currency} {account.amount}</p>
                 <div className="flex justify-start gap-4 mt-2">
-                  <button className="bg-[#33B786] hover:bg-[#33B786] text-white font-bold py-2 px-4 rounded text-xs">Fund</button>
+                  <button onClick={handleFundWallet} className="bg-[#33B786] hover:bg-[#33B786] text-white font-bold py-2 px-4 rounded text-xs">Fund</button>
                   <button onClick={handleWithdraw} className="bg-[#D4D4D4] hover:bg-[#D4D4D4] text-[#252525] font-bold py-2 px-4 rounded text-xs">Withdraw</button>
                 </div>
               </>
