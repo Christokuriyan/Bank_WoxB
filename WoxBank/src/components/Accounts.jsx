@@ -1,4 +1,4 @@
-
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import PlusIcon from '../../public/assets/icons/Outlet/plus.svg';
 import MinusIcon from '../../public/assets/icons/Outlet/fi-sr-minus-small.svg';
@@ -6,7 +6,7 @@ import YourIcon from '../../public/assets/icons/Outlet/nw-arr.svg';
 
 const Accounts = () => {
   const navigate = useNavigate();
-  
+
   const accounts = [
     { id: 1, title: 'Main Account', currency: '₦', amount: '50,000' },
     { id: 2, title: 'Savings Account', currency: '₦', amount: '15,000' },
@@ -23,17 +23,28 @@ const Accounts = () => {
     { id: 6, type: '-', name: 'Oluwaben Jamin', method: 'Direct Pay', date: '06.Mar.2023 - 10:00', amount: '-5000', status: 'Pending' },
     { id: 7, type: '+', name: 'Oluwaben Jamin', method: 'Credit Card', date: '06.Mar.2023 - 11:21', amount: '+2000', status: 'Cancelled' }
   ];
+
   const handleWithdraw = () => {
-    navigate('/withdrawForm'); // Navigate to WithdrawForm
+    navigate('/withdrawform'); // Navigate to WithdrawForm
   };
+
   const handleFundWallet = () => {
-    navigate('/FundWallet'); // Navigate to WithdrawForm
+    navigate('/fundwallet'); // Navigate to FundWallet
   };
+
+  const handleAddAccount = () => {
+    navigate('/AddAccountForm'); // Navigate to AddAccountForm
+  };
+
   return (
     <div className="container mx-auto px-48 pl-2">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
         {accounts.map(account => (
-          <div key={account.id} className={`shadow rounded p-7 ${account.custom ? 'bg-[#F0F0F0BF]' : 'bg-[#D4F3E7]'} `}>
+          <div
+            key={account.id}
+            className={`shadow rounded p-7 ${account.custom ? 'bg-[#F0F0F0BF] cursor-pointer' : 'bg-[#D4F3E7]'} `}
+            onClick={account.custom ? handleAddAccount : null}
+          >
             {account.custom ? ( // Render custom box for adding account
               <>
                 <div className="flex items-center gap-8">

@@ -9,7 +9,9 @@ import Accounts from './components/Accounts';
 import Transaction from './components/Transaction';
 import Profile from './components/Profile';
 import WithdrawForm from './screens/WithdrawForm';
-import FundWallet from '../src/screens/FundWallet'; // Import the FundWallet component if it's part of your project
+import FundWallet from '../src/screens/FundWallet'; 
+import SuccessMessage from '../src/screens/SuccessMessage';
+import AddAccountForm from '../src/screens/AddAccountForm'
 
 function App() {
   return (
@@ -25,10 +27,12 @@ function App() {
           <Route path="accounts" element={<Accounts />} />
           <Route path="transaction" element={<Transaction />} />
           <Route path="profile" element={<Profile />} />
-           {/* Add FundWallet route */}
+          
         </Route>
         <Route path="WithdrawForm" element={<WithdrawForm />} />
         <Route path="fundwallet" element={<FundWallet />} />
+        <Route path="SuccessMessage" element={<SuccessMessage/>} />
+        <Route path="AddAccountForm" element={<AddAccountForm/>} />
       </Routes>
     </BrowserRouter>
   );
