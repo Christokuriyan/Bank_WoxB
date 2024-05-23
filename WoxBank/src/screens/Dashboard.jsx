@@ -1,6 +1,27 @@
+
 // import { NavLink, Outlet, useLocation } from 'react-router-dom';
 // import { useState, useEffect } from 'react';
 // import SearchIcon from '../../public/assets/dashboard/search_icon.svg';
+
+// // Define the icon paths for active and inactive states
+// const iconPaths = {
+//     overview: {
+//         active: "../../public/assets/icons/Outlet/overview_color.svg",
+//         inactive: "../../public/assets/icons/Outlet/overview_plain.svg"
+//     },
+//     accounts: {
+//         active: "../../public/assets/icons/Outlet/Account_color.svg",
+//         inactive: "../../public/assets/icons/account.svg"
+//     },
+//     transaction: {
+//         active: "../../public/assets/icons/Outlet/Transaction_color.svg",
+//         inactive: "../../public/assets/icons/transaction.svg"
+//     },
+//     profile: {
+//         active: "../../public/assets/icons/Outlet/Profile_color.svg",
+//         inactive: "../../public/assets/icons/profile.svg"
+//     }
+// };
 
 // const Dashboard = () => {
 //     const [searchTerm, setSearchTerm] = useState("");
@@ -33,84 +54,99 @@
 //     };
 
 //     return (
-//         <div className="flex flex-col min-h-screen bg-red-100 ml-[60px] mt-[55px]">
+//         <div className="flex flex-col min-h-screen bg-red-100 ml-0 sm:ml-[60px] mt-[55px]">
 //             <div className="flex flex-grow">
 //                 {/* Sidebar Navigation */}
-//                 <div style={{ backgroundColor: '#f5fcf9' }} className="w-64 p-4 flex flex-col justify-between">
+//                 <div style={{ backgroundColor: '#f5fcf9' }} className="hidden md:flex w-64 p-4 flex-col justify-between">
 //                     <div>
-//                         <div className="flex items-center space-x-4 xl:mb-[84px]">
+//                         <div className="flex items-center space-x-4 xl:mb-[84px] sm:mb-[80px]">
 //                             <img src="../../public/assets/icons/Wox Bank (1).svg" alt="App Logo" className="scale-100" />
 //                         </div>
 //                         <ul className="space-y-7 ml-8">
 //                             <li>
 //                                 <NavLink
 //                                     to="/dashboard/overview"
-//                                     className={({ isActive }) => 
+//                                     className={({ isActive }) =>
 //                                         `flex items-center space-x-4 ${isActive ? 'text-[#33B786]' : 'text-gray-600'} hover:text-[#33B786]`
 //                                     }
 //                                 >
-//                                     <img src="../../public/assets/icons/Over.svg" alt="Overview Icon" className="h-6 w-6" />
-//                                     <span>Overview</span>
+//                                     {({ isActive }) => (
+//                                         <>
+//                                             <img src={isActive ? iconPaths.overview.active : iconPaths.overview.inactive} alt="Overview Icon" className="h-6 w-6" />
+//                                             <span>Overview</span>
+//                                         </>
+//                                     )}
 //                                 </NavLink>
 //                             </li>
 //                             <li>
 //                                 <NavLink
 //                                     to="/dashboard/accounts"
-//                                     className={({ isActive }) => 
+//                                     className={({ isActive }) =>
 //                                         `flex items-center space-x-4 ${isActive ? 'text-[#33B786]' : 'text-gray-600'} hover:text-[#33B786]`
 //                                     }
 //                                 >
-//                                     <img src="../../public/assets/icons/account.svg" alt="Accounts Icon" className="h-6 w-6" />
-//                                     <span>Accounts</span>
+//                                     {({ isActive }) => (
+//                                         <>
+//                                             <img src={isActive ? iconPaths.accounts.active : iconPaths.accounts.inactive} alt="Accounts Icon" className="h-6 w-6" />
+//                                             <span>Accounts</span>
+//                                         </>
+//                                     )}
 //                                 </NavLink>
 //                             </li>
 //                             <li>
 //                                 <NavLink
 //                                     to="/dashboard/transaction"
-//                                     className={({ isActive }) => 
+//                                     className={({ isActive }) =>
 //                                         `flex items-center space-x-4 ${isActive ? 'text-[#33B786]' : 'text-gray-600'} hover:text-[#33B786]`
 //                                     }
 //                                 >
-//                                     <img src="../../public/assets/icons/transaction.svg" alt="Transaction Icon" className="h-6 w-6" />
-//                                     <span>Transaction</span>
+//                                     {({ isActive }) => (
+//                                         <>
+//                                             <img src={isActive ? iconPaths.transaction.active : iconPaths.transaction.inactive} alt="Transaction Icon" className="h-6 w-6" />
+//                                             <span>Transaction</span>
+//                                         </>
+//                                     )}
 //                                 </NavLink>
 //                             </li>
 //                             <li>
 //                                 <NavLink
 //                                     to="/dashboard/profile"
-//                                     className={({ isActive }) => 
+//                                     className={({ isActive }) =>
 //                                         `flex items-center space-x-4 ${isActive ? 'text-[#33B786]' : 'text-gray-600'} hover:text-[#33B786]`
 //                                     }
 //                                 >
-//                                     <img src="../../public/assets/icons/profile.svg" alt="Profile Icon" className="h-6 w-6" />
-//                                     <span>Profile</span>
+//                                     {({ isActive }) => (
+//                                         <>
+//                                             <img src={isActive ? iconPaths.profile.active : iconPaths.profile.inactive} alt="Profile Icon" className="h-6 w-6" />
+//                                             <span>Profile</span>
+//                                         </>
+//                                     )}
 //                                 </NavLink>
 //                             </li>
 //                         </ul>
 //                         <div className='pt-64 ml-8'>
-//                         <button 
-//                             onClick={handleLogout} 
-//                             className="flex items-center space-x-4 text-gray-600 hover:text-[#33B786]"
-//                         >
-//                             <img src="../../public/assets/icons/Outlet/fi-rr-arrow-left.svg" alt="Logout Icon" className="h-6 w-6" />
-//                             <span>Logout</span>
-//                         </button>
+//                             <button 
+//                                 onClick={handleLogout} 
+//                                 className="flex items-center space-x-4 text-gray-600 hover:text-[#33B786]"
+//                             >
+//                                 <img src="../../public/assets/icons/Outlet/fi-rr-arrow-left.svg" alt="Logout Icon" className="h-6 w-6" />
+//                                 <span>Logout</span>
+//                             </button>
+//                         </div>
 //                     </div>
-//                     </div>
-                  
 //                 </div>
 //                 <div className="flex flex-col flex-grow bg-[#f5fcf9] justify-start xl-items-start">
-//                     <div className="bg-[#f5fcf9] mb-16 flex justify-start">
+//                     <div className="hidden md:flex bg-[#f5fcf9] mb-16 justify-start">
 //                         <div className="flex-grow flex justify-start items-center ml-8 relative">
 //                             <h1 className="text-3xl font-semibold">{heading}</h1>
 //                         </div>
-//                         <div className="flex-grow flex justify-end items-center xl:mr-[90px]">
+//                         <div className="hidden md:flex flex-grow justify-end items-center xl:mr-[90px]">
 //                             <div className="text-right">
 //                                 <p className="text-sm font-semibold" style={{ color: '#33B786' }}>Maureen Oguche</p>
 //                                 <p className="text-2xl font-semibold">1234567890</p>
 //                             </div>
 //                         </div>
-//                         <div className="flex place-items-start space-x-6 pr-20 flex-grow">
+//                         <div className="hidden md:flex place-items-start space-x-6 pr-20 flex-grow">
 //                             <form onSubmit={handleSearch} className="relative" style={{ backgroundColor: '#f5fcf9' }}>
 //                                 <input
 //                                     type="text"
@@ -140,7 +176,7 @@
 // };
 
 // export default Dashboard;
-import { NavLink, Outlet, useLocation } from 'react-router-dom';
+import { NavLink, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import SearchIcon from '../../public/assets/dashboard/search_icon.svg';
 
@@ -169,6 +205,7 @@ const Dashboard = () => {
     const [heading, setHeading] = useState("Overview");
 
     const location = useLocation();
+    const navigate = useNavigate();
 
     useEffect(() => {
         const path = location.pathname;
@@ -190,17 +227,16 @@ const Dashboard = () => {
     };
 
     const handleLogout = () => {
-        // Implement your logout logic here
-        console.log("Logging out...");
+        navigate('/LogoutConfirmation');
     };
 
     return (
-        <div className="flex flex-col min-h-screen bg-red-100 ml-[60px] mt-[55px]">
+        <div className="flex flex-col min-h-screen bg-red-100 ml-0 sm:ml-[60px] mt-[55px]">
             <div className="flex flex-grow">
                 {/* Sidebar Navigation */}
-                <div style={{ backgroundColor: '#f5fcf9' }} className="w-64 p-4 flex flex-col justify-between">
+                <div style={{ backgroundColor: '#f5fcf9' }} className="hidden md:flex w-64 p-4 flex-col justify-between">
                     <div>
-                        <div className="flex items-center space-x-4 xl:mb-[84px]">
+                        <div className="flex items-center space-x-4 xl:mb-[84px] sm:mb-[80px]">
                             <img src="../../public/assets/icons/Wox Bank (1).svg" alt="App Logo" className="scale-100" />
                         </div>
                         <ul className="space-y-7 ml-8">
@@ -277,17 +313,17 @@ const Dashboard = () => {
                     </div>
                 </div>
                 <div className="flex flex-col flex-grow bg-[#f5fcf9] justify-start xl-items-start">
-                    <div className="bg-[#f5fcf9] mb-16 flex justify-start">
+                    <div className="hidden md:flex bg-[#f5fcf9] mb-16 justify-start">
                         <div className="flex-grow flex justify-start items-center ml-8 relative">
                             <h1 className="text-3xl font-semibold">{heading}</h1>
                         </div>
-                        <div className="flex-grow flex justify-end items-center xl:mr-[90px]">
+                        <div className="hidden md:flex flex-grow justify-end items-center xl:mr-[90px]">
                             <div className="text-right">
                                 <p className="text-sm font-semibold" style={{ color: '#33B786' }}>Maureen Oguche</p>
                                 <p className="text-2xl font-semibold">1234567890</p>
                             </div>
                         </div>
-                        <div className="flex place-items-start space-x-6 pr-20 flex-grow">
+                        <div className="hidden md:flex place-items-start space-x-6 pr-20 flex-grow">
                             <form onSubmit={handleSearch} className="relative" style={{ backgroundColor: '#f5fcf9' }}>
                                 <input
                                     type="text"
