@@ -20,15 +20,19 @@ const AddAccountForm = () => {
     console.log('Account Name:', accountName);
     console.log('Description:', description);
     // Navigate to another page if needed
-    navigate('/successmessage');
+    navigate('/successmessage', { state: {
+      display:true,
+       message: ` has been sent to your Bank Account` } });
   };
+
 
   const handleCancel = () => {
     navigate(-1); // Navigate back to the previous page
   };
 
+
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
+    <div className="flex items-center justify-center min-h-screen ">
       <div className="bg-white p-8 rounded-lg shadow-lg w-96">
         <h2 className="text-2xl font-semibold text-center mb-6 text-green-600">Add Account</h2>
         <form onSubmit={handleSubmit}>

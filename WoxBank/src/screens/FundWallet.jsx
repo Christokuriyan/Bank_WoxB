@@ -192,7 +192,7 @@ function FundWallet() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission logic
+    // Log form submission data
     console.log('Payment Method:', paymentMethod);
     console.log('Amount:', amount);
     if (paymentMethod === 'Credit Card') {
@@ -201,15 +201,15 @@ function FundWallet() {
       console.log('Expiry Date:', expiryDate);
       console.log('CVV:', cvv);
     }
-    // Navigate to SuccessMessage page
-    navigate('/successmessage');
+    // Navigate to SuccessMessage page with the amount and message
+    navigate('/successmessage', { state: { amount, message: `${amount} has been added to your wallet` } });
   };
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-100">
-      <form 
-        onSubmit={handleSubmit} 
-        className="bg-white p-6 rounded-lg w-80" 
+      <form
+        onSubmit={handleSubmit}
+        className="bg-white p-6 rounded-lg w-80"
         style={{ boxShadow: '0px 0px 150px 25px rgba(51, 183, 134, 0.25)' }}
       >
         <h2 className="text-2xl font-semibold text-center mb-6 text-green-600">Fund Wallet</h2>
@@ -217,21 +217,21 @@ function FundWallet() {
           <label className="block text-gray-700 mb-2">Select Payment Method</label>
           <div className="flex justify-around">
             <label className="flex items-center">
-              <input 
-                type="radio" 
-                value="Direct Pay" 
-                checked={paymentMethod === 'Direct Pay'} 
-                onChange={handlePaymentMethodChange} 
+              <input
+                type="radio"
+                value="Direct Pay"
+                checked={paymentMethod === 'Direct Pay'}
+                onChange={handlePaymentMethodChange}
                 className="form-radio text-green-600"
               />
               <span className="ml-2">Direct Pay</span>
             </label>
             <label className="flex items-center">
-              <input 
-                type="radio" 
-                value="Credit Card" 
-                checked={paymentMethod === 'Credit Card'} 
-                onChange={handlePaymentMethodChange} 
+              <input
+                type="radio"
+                value="Credit Card"
+                checked={paymentMethod === 'Credit Card'}
+                onChange={handlePaymentMethodChange}
                 className="form-radio text-green-600"
               />
               <span className="ml-2">Credit Card</span>
@@ -240,11 +240,11 @@ function FundWallet() {
         </div>
         <div className="mb-6">
           <label className="block text-gray-700 mb-2">Amount</label>
-          <input 
-            type="text" 
-            value={amount} 
-            onChange={handleAmountChange} 
-            placeholder="100,000" 
+          <input
+            type="text"
+            value={amount}
+            onChange={handleAmountChange}
+            placeholder="100,000"
             className="w-full px-4 py-2 border border-gray-300 rounded-md"
           />
         </div>
@@ -252,42 +252,42 @@ function FundWallet() {
           <div className="mb-6 space-y-4">
             <div className="flex flex-col">
               <label className="block text-gray-700 mb-2">Card Number</label>
-              <input 
-                type="text" 
-                value={cardNumber} 
-                onChange={handleCardNumberChange} 
-                placeholder="Card Number" 
+              <input
+                type="text"
+                value={cardNumber}
+                onChange={handleCardNumberChange}
+                placeholder="Card Number"
                 className="w-full px-4 py-2 border border-gray-300 rounded-md"
               />
             </div>
             <div className="flex flex-col">
               <label className="block text-gray-700 mb-2">Card Holder Name</label>
-              <input 
-                type="text" 
-                value={cardHolderName} 
-                onChange={handleCardHolderNameChange} 
-                placeholder="Card Holder Name" 
+              <input
+                type="text"
+                value={cardHolderName}
+                onChange={handleCardHolderNameChange}
+                placeholder="Card Holder Name"
                 className="w-full px-4 py-2 border border-gray-300 rounded-md"
               />
             </div>
             <div className="flex space-x-4">
               <div className="flex flex-col flex-1">
                 <label className="block text-gray-700 mb-2">Expiry Date</label>
-                <input 
-                  type="text" 
-                  value={expiryDate} 
-                  onChange={handleExpiryDateChange} 
-                  placeholder="MM/YY" 
+                <input
+                  type="text"
+                  value={expiryDate}
+                  onChange={handleExpiryDateChange}
+                  placeholder="MM/YY"
                   className="w-full px-4 py-2 border border-gray-300 rounded-md"
                 />
               </div>
               <div className="flex flex-col flex-1">
                 <label className="block text-gray-700 mb-2">CVV</label>
-                <input 
-                  type="text" 
-                  value={cvv} 
-                  onChange={handleCvvChange} 
-                  placeholder="CVV" 
+                <input
+                  type="text"
+                  value={cvv}
+                  onChange={handleCvvChange}
+                  placeholder="CVV"
                   className="w-full px-4 py-2 border border-gray-300 rounded-md"
                 />
               </div>
@@ -295,15 +295,15 @@ function FundWallet() {
           </div>
         )}
         <div className="flex justify-between">
-          <button 
-            type="button" 
+          <button
+            type="button"
             className="px-4 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300"
             onClick={() => navigate(-1)}
           >
             Cancel
           </button>
-          <button 
-            type="submit" 
+          <button
+            type="submit"
             className="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700"
           >
             Fund
