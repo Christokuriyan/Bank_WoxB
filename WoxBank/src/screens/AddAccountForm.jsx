@@ -19,7 +19,7 @@ const AddAccountForm = ({isOpen, onRequestClose}) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission logic jn j h g
+    // Handle form submission logic jn j h g g
     console.log('Account Name:', accountName);
     console.log('Description:', description);
     // Navigate to another page if needed
