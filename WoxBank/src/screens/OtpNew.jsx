@@ -156,8 +156,7 @@ const OtpNew = () => {
         <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center">
           <div className="bg-white p-12 rounded-lg shadow-lg w-1/3">
             <h2 className="text-xl font-bold text-[#33B786] mb-8">Your account has been created Successfully!</h2>
-            {/* <Button onClick={()=>sample}>Go to Dashboard</Button> */}
-            {/* <Button onClick={() => navigate("/dashboard")}>Go to Dashboard</Button> */}
+         
             <div className="flex items-center justify-center ">
   <button
     onClick={() => navigate("/dashboard")}
