@@ -1,11 +1,13 @@
-import React from 'react';
+import React,{ useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import PlusIcon from '../../public/assets/icons/Outlet/plus.svg';
 import MinusIcon from '../../public/assets/icons/Outlet/fi-sr-minus-small.svg';
 import YourIcon from '../../public/assets/icons/Outlet/nw-arr.svg';
+import AddAccountForm from '../screens/AddAccountForm';
 
 const Accounts = () => {
   const navigate = useNavigate();
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const accounts = [
     { id: 1, title: 'Main Account', currency: '₦', amount: '50,000' },
@@ -31,9 +33,17 @@ const Accounts = () => {
   const handleFundWallet = () => {
     navigate('/fundwallet'); // Navigate to FundWallet
   };
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
 
-  const handleAddAccount = () => {
-    navigate('/AddAccountForm'); // Navigate to AddAccountForm
+
+   
+  
+  const handleAddAccountForm = () => {
+    // navigate('/AddAccountForm');
+    // console.log('first')
+    setIsModalOpen(true)
   };
 
   return (
@@ -43,11 +53,11 @@ const Accounts = () => {
           <div
             key={account.id}
             className={`shadow rounded p-7 ${account.custom ? 'bg-[#F0F0F0BF] cursor-pointer' : 'bg-[#D4F3E7]'} `}
-            onClick={account.custom ? handleAddAccount : null}
+            onClick={account.custom ? handleAddAccountForm : null}
           >
             {account.custom ? ( // Render custom box for adding account
               <>
-                <div className="flex items-center gap-8">
+                <div onClick={handleAddAccountForm} className="flex items-center gap-8">
                   <img src={PlusIcon} alt="Add" className="w-8 h-8" />
                   <h2 className="text-xs text-gray-600 font-bold mr-2">Add Account</h2>
                 </div>
@@ -95,6 +105,7 @@ const Accounts = () => {
           </div>
         ))}
       </div>
+      <AddAccountForm isOpen={isModalOpen} onRequestClose={closeModal} />
     </div>
   );
 }
