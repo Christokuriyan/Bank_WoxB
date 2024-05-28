@@ -55,7 +55,7 @@ const Accounts = () => {
             className={`shadow rounded p-7 ${account.custom ? 'bg-[#F0F0F0BF] cursor-pointer' : 'bg-[#D4F3E7]'} `}
             onClick={account.custom ? handleAddAccountForm : null}
           >
-            {account.custom ? ( // Render custom box for adding account 
+            {account.custom ? ( // Render custom box for adding account ww
               <>
                 <div onClick={handleAddAccountForm} className="flex items-center gap-8">
                   <img src={PlusIcon} alt="Add" className="w-8 h-8" />
