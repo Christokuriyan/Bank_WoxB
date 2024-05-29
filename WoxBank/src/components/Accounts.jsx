@@ -39,7 +39,7 @@ const Accounts = () => {
     // console.log('first')
     setIsModalOpen(true)
   };
-
+h
   return (
     <div className="container mx-auto px-48 pl-2">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
