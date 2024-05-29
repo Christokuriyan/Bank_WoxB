@@ -36,7 +36,7 @@ const Accounts = () => {
   };  
   const handleAddAccountForm = () => {
     // navigate('/AddAccountForm');
-    // console.log('first')h
+    // console.log('first')y
     setIsModalOpen(true)
   };
 
