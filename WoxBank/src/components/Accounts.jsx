@@ -25,21 +25,15 @@ const Accounts = () => {
     { id: 6, type: '-', name: 'Oluwaben Jamin', method: 'Direct Pay', date: '06.Mar.2023 - 10:00', amount: '-5000', status: 'Pending' },
     { id: 7, type: '+', name: 'Oluwaben Jamin', method: 'Credit Card', date: '06.Mar.2023 - 11:21', amount: '+2000', status: 'Cancelled' }
   ];
-
   const handleWithdraw = () => {
     navigate('/withdrawform'); // Navigate to WithdrawForm
   };
-
   const handleFundWallet = () => {
     navigate('/fundwallet'); // Navigate to FundWallet
   };
   const closeModal = () => {
     setIsModalOpen(false);
-  };
-
-
-   
-  
+  };  
   const handleAddAccountForm = () => {
     // navigate('/AddAccountForm');
     // console.log('first')
