@@ -1,4 +1,4 @@
-import React,{ useState } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import PlusIcon from '../../public/assets/icons/Outlet/plus.svg';
 import MinusIcon from '../../public/assets/icons/Outlet/fi-sr-minus-small.svg';
@@ -8,6 +8,13 @@ import AddAccountForm from '../screens/AddAccountForm';
 const Accounts = () => {
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const [activeAccountId, setActiveAccountId] = useState(null);
+
+  // Function to handle clicking on an account
+  const handleAccountClick = (id) => {
+    setActiveAccountId(id);
+  };
 
   const accounts = [
     { id: 1, title: 'Main Account', currency: '₦', amount: '50,000' },
@@ -33,7 +40,7 @@ const Accounts = () => {
   };
   const closeModal = () => {
     setIsModalOpen(false);
-  };  
+  };
   const handleAddAccountForm = () => {
     // navigate('/AddAccountForm');
     // console.log('first'
@@ -44,10 +51,13 @@ const Accounts = () => {
     <div className="container mx-auto px-48 pl-2 ">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8 ">
         {accounts.map(account => (
-          <div 
+          <div
             key={account.id}
-            className={`shadow rounded-r-lg border-l-4 border-[#46237A] p-7 ${account.custom ? 'bg-[#F0F0F0BF] cursor-pointer' : 'bg-[#D4F3E7]'} `}
-            onClick={account.custom ? handleAddAccountForm : null}
+            className={`shadow rounded-r-lg p-7 ${account.custom ? 'bg-[#F0F0F0BF] cursor-pointer' : 'bg-[#D4F3E7]'} 
+            ${activeAccountId === account.id ? 'border-l-4 border-[#46237A]' : ''
+              }`
+            }
+            onClick={() => [handleAccountClick(account.id), account.custom ? handleAddAccountForm : null]}
           >
             {account.custom ? ( // Render custom box for adding account 
               <>
