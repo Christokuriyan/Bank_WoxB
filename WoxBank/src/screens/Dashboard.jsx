@@ -22,7 +22,7 @@ const iconPaths = {
         inactive: "../../public/assets/icons/profile.svg"
     }
 };
-x
+
 const Dashboard = () => {
     const [searchTerm, setSearchTerm] = useState("");
     const [heading, setHeading] = useState("Overview");
