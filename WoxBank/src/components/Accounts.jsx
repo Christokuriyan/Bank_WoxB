@@ -41,15 +41,15 @@ const Accounts = () => {
   };
 
   return (
-    <div className="container mx-auto px-48 pl-2">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+    <div className="container mx-auto px-48 pl-2 ">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8 ">
         {accounts.map(account => (
-          <div
+          <div 
             key={account.id}
-            className={`shadow rounded p-7 ${account.custom ? 'bg-[#F0F0F0BF] cursor-pointer' : 'bg-[#D4F3E7]'} `}
+            className={`shadow rounded-r-lg border-l-4 border-[#46237A] p-7 ${account.custom ? 'bg-[#F0F0F0BF] cursor-pointer' : 'bg-[#D4F3E7]'} `}
             onClick={account.custom ? handleAddAccountForm : null}
           >
-            {account.custom ? ( // Render custom box for adding account t
+            {account.custom ? ( // Render custom box for adding account 
               <>
                 <div onClick={handleAddAccountForm} className="flex items-center gap-8">
                   <img src={PlusIcon} alt="Add" className="w-8 h-8" />

@@ -235,7 +235,7 @@ const OverView = () => {
             <h1 className="text-xl font-bold mb-6">Transactions</h1>
             <div className="">
               {transactions.map(transaction => (
-                <div key={transaction.id} className="flex justify-between items-center mb-1 border-b border-gray-300 pb-1">
+                <div key={transaction.id} className="flex justify-between items-center mb-3 border-b border-gray-300 pb-1 text-sm ">
                   <span className="transaction-details">{transaction.name}</span>
                   <span className="transaction-details">{transaction.date}</span>
                   <span className={`font-semibold ${transaction.amount < 0 ? 'text-red-500' : 'text-green-500'}`} style={{ fontFamily: 'Bebas Neue' }}>

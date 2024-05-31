@@ -41,7 +41,7 @@ const Transaction = () => {
               <span className="text-base w-[10rem] text-[#8C8C8C] font-semibold">{transaction.name}</span>
         <span className="text-base w-[10rem] text-[#8C8C8C] font-semibold">{transaction.method}</span>
         <span className="text-base w-[10rem] text-[#8C8C8C] font-semibold">{transaction.date}</span>
-              <span style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: '24px' }} className={`${transaction.amount.startsWith('+') ? 'text-[#33B786]' : 'text-red-500'}`}>
+              <span style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: '20px' }} className={`${transaction.amount.startsWith('+') ? 'text-[#33B786]' : 'text-red-500'}`}>
                 {transaction.amount}
               </span>
               <button className={`w-36 h-8 py-1 px-2 rounded text-xs ${transaction.status === 'Completed' ? 'bg-[#33B786] text-white text-sm font-bold' : transaction.status === 'Pending' ? 'bg-[#D4D4D4] text-[#555555] text-xs font-bold' : 'bg-[#E74F5B] text-white text-xs font-bold'}`}>
