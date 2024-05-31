@@ -344,7 +344,7 @@ const Dashboard = () => {
                             </button>
                         </div>
                     </div>
-                    {/* Content Outlet gg*/}
+                    {/* Content Outlet g*/}
                     <Outlet />
                 </div>
             </div>
