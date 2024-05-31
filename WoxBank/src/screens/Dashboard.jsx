@@ -83,7 +83,7 @@ const Dashboard = () => {
                                     to="/dashboard/accounts"
                                     className={({ isActive }) =>
                                         `flex items-center space-x-4 ${isActive ? 'text-[#33B786]' : 'text-gray-600'} hover:text-[#33B786]`
-                                    }
+                                    }h
                                 >
                                     {({ isActive }) => (
                                         <>
